@@ -16,7 +16,7 @@ const CONFIG = {
 
   // ---- শুভেচ্ছা দেয়াল ----
   // ১) গুগল ফর্মের লিংক (https://forms.gle/... বা docs.google.com/forms/...)। এটা দিলেই "শুভেচ্ছা লেখো" বাটন আসবে।
-  WISH_FORM_URL: "",
+  WISH_FORM_URL: "https://forms.gle/847sJmxzivm2P6t3A",
   // ২) ফর্মের উত্তরের শিট "Publish to web" করে CSV লিংক এখানে দাও।
   //    শিটে একটা "Approved" কলাম যোগ করো। যে বার্তা দেখাতে চাও, তার ঘরে yes লেখো।
   //    yes ছাড়া কোনো বার্তা সাইটে আসবে না।
