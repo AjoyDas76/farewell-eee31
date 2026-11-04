@@ -101,6 +101,17 @@
   .menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
   .menu li { padding: .3rem .85rem; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: .95rem; }
 
+  /* Venue */
+  .venue { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 1rem; align-items: stretch; }
+  .venue-info { display: flex; flex-direction: column; gap: .9rem; justify-content: space-between; }
+  .venue-info h3 { font-size: 1.4rem; margin: 0 0 .2rem; font-family: var(--serif); color: var(--gold); }
+  .venue-info p { margin: 0; color: var(--mut); }
+  .venue-info .meta { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+  .venue-info .meta li { display: flex; align-items: center; gap: .6rem; }
+  .venue-info .meta .ico { color: var(--gold); }
+  .map { border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); min-height: 320px; background: var(--surface); }
+  .map iframe { display: block; width: 100%; height: 100%; min-height: 320px; border: 0; }
+
   /* Payment */
   .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch; }
   .steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: .9rem; }
@@ -155,7 +166,8 @@
   footer b { color: var(--ink); display: block; }
 
   @media (max-width: 860px) {
-    .hero-grid, .prog-grid, .pay-grid { grid-template-columns: 1fr; }
+    .hero-grid, .prog-grid, .pay-grid, .venue { grid-template-columns: 1fr; }
+    .map, .map iframe { min-height: 280px; }
     .poster { order: -1; }
     .tiles { margin-left: 0; max-width: none; flex-basis: 100%; }
     .nav .link { display: none; }
@@ -183,6 +195,7 @@
     <a class="brand" href="#top"><i aria-hidden="true">🎓</i><span>ইইই ৩১ ফেয়ারওয়েল</span></a>
     <nav aria-label="প্রধান মেনু">
       <a class="link" href="#details">অনুষ্ঠান</a>
+      <a class="link" href="#venue">লোকেশন</a>
       <a class="link" href="#pay">পেমেন্ট</a>
       <a class="link" href="#board">তালিকা</a>
       <a class="btn primary sm" href="#pay">পেমেন্ট করো</a>
@@ -245,6 +258,33 @@
           <ul class="menu">
             <li>পোলাও</li><li>মুরগি রোস্ট</li><li>চিংড়ি</li><li>ডিম কারি</li><li>চায়নিজ ভেজিটেবল</li><li>সালাদ</li><li>সফট ড্রিংকস</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="venue">
+    <div class="wrap">
+      <p class="eyebrow">ভেন্যু</p>
+      <h2>অনুষ্ঠানের স্থান</h2>
+      <div class="venue">
+        <div class="panel venue-info">
+          <div>
+            <h3>Asian Bistro</h3>
+            <p>চট্টগ্রাম</p>
+          </div>
+          <ul class="meta">
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>১৪ নভেম্বর ২০২৬, শনিবার</li>
+            <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>সন্ধ্যা ৬:০০ টা</li>
+          </ul>
+          <a class="btn primary" href="https://maps.app.goo.gl/ANACF3B5RETvKqbA8" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            গুগল ম্যাপে খুলুন
+          </a>
+        </div>
+        <div class="map">
+          <iframe title="Asian Bistro এর লোকেশন" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+            src="https://maps.google.com/maps?q=22.3618031,91.8018092&amp;z=16&amp;hl=bn&amp;output=embed"></iframe>
         </div>
       </div>
     </div>
