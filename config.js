@@ -4,7 +4,7 @@
 const CONFIG = {
   // Google Sheet এর "Publish to web" থেকে পাওয়া CSV লিংক এখানে বসাও।
   // খালি রাখলে নিচের SNAPSHOT তালিকা দেখাবে।
-  SHEET_CSV_URL: "",
+  SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIORD07AAbxcwSqFV7TaoQvtIRXSKJYpowZpTZl6Mrkk5tqhYMmdqDUcu_7IBF3ExJaZ6rcDVsJ4O8/pub?gid=0&single=true&output=csv",
 
   // শিটের কলামের নাম (হেডার যেভাবে লেখা আছে ঠিক সেভাবে)
   COL_ID: "Student ID",
@@ -18,7 +18,7 @@ const CONFIG = {
   FEE: 1000,
 
   // পেমেন্টের শেষ তারিখ
-  DEADLINE: "৬ নভেম্বর ২০২৬",
+  DEADLINE: "৭ নভেম্বর ২০২৬",
 
   // শিট লোড না হলে যে তারিখ পর্যন্ত তালিকা হালনাগাদ বলে দেখাবে
   SNAPSHOT_DATE: "৫ নভেম্বর ২০২৬"
