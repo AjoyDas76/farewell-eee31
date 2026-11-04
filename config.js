@@ -20,7 +20,7 @@ const CONFIG = {
   // ২) ফর্মের উত্তরের শিট "Publish to web" করে CSV লিংক এখানে দাও।
   //    শিটে একটা "Approved" কলাম যোগ করো। যে বার্তা দেখাতে চাও, তার ঘরে yes লেখো।
   //    yes ছাড়া কোনো বার্তা সাইটে আসবে না।
-  WISH_CSV_URL: "",
+  WISH_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQqHRToR9yJRnI6L5Vsrck5kt5wIZuiM-MRCVwyf82b3VMxYISX3GhwhWUipOn1Vb8skGwPxgnvgPuR/pub?gid=428348174&single=true&output=csv",
   // শিটের কলামের নাম (ফর্মের প্রশ্নের নাম যা, ঠিক তা-ই লেখো)
   WISH_COL_NAME: "Name",
   WISH_COL_MSG: "Message",
