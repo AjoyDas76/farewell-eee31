@@ -2,288 +2,301 @@
 <html lang="bn">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং), পোর্ট সিটি ইন্টারন্যাশনাল ইউনিভার্সিটি</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070d24">
+<title>ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)</title>
 <meta name="description" content="ইইই ৩১তম ব্যাচ (ইভিনিং) ফেয়ারওয়েল নাইট: ১৪ নভেম্বর ২০২৬, Asian Bistro। অনুষ্ঠানের তথ্য ও পেমেন্ট তালিকা।">
-<meta property="og:title" content="Farewell Night | EEE 31st Batch (Evening)">
-<meta property="og:description" content="A Night to Remember, A Journey to Cherish. 14 November 2026, Asian Bistro.">
-<meta property="og:image" content="banner.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@700;800&display=swap" rel="stylesheet">
 <style>
+  @counter-style bengali { system: numeric; symbols: "০" "১" "২" "৩" "৪" "৫" "৬" "৭" "৮" "৯"; }
   :root {
-    --navy-950: #050f31;
-    --navy-900: #0a1c57;
-    --navy-800: #0f2a7a;
-    --royal: #2358e0;
-    --gold: #f7c948;
-    --gold-deep: #c9931b;
-    --ivory: #fff6dc;
-    --ink: #eaf0ff;
-    --muted: #a9b7e0;
-    --line: rgba(247, 201, 72, .28);
-    --serif: "Noto Serif Bengali", "Kalpurush", "SolaimanLipi", Georgia, serif;
-    --sans: "Hind Siliguri", "Noto Sans Bengali", "Segoe UI", system-ui, sans-serif;
+    --bg: #070d24;
+    --surface: rgba(255, 255, 255, .045);
+    --surface-2: rgba(255, 255, 255, .08);
+    --line: rgba(255, 255, 255, .1);
+    --gold: #f5c542;
+    --gold-soft: rgba(245, 197, 66, .14);
+    --ink: #f1f4ff;
+    --mut: #94a3cf;
+    --blue: #3b6cff;
+    --navy: #0b1650;
+    --r: 20px;
+    --serif: "Noto Serif Bengali", Georgia, serif;
+    --sans: "Hind Siliguri", "Noto Sans Bengali", system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    font-family: var(--sans);
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: var(--ink);
+  html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font-family: var(--sans); font-size: 1rem; line-height: 1.6; color: var(--ink); overflow-x: hidden; }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
-      radial-gradient(1200px 600px at 85% -5%, rgba(35, 88, 224, .45), transparent 60%),
-      radial-gradient(900px 500px at 0% 40%, rgba(35, 88, 224, .22), transparent 60%),
-      var(--navy-950);
-    background-attachment: fixed;
+      radial-gradient(700px 420px at 85% -5%, rgba(59, 108, 255, .3), transparent 60%),
+      radial-gradient(500px 360px at 0% 40%, rgba(245, 197, 66, .07), transparent 60%);
   }
-  img { max-width: 100%; display: block; }
-  a { color: var(--gold); }
-  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
-  .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+  img, svg { max-width: 100%; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 8px; }
+  .wrap { width: min(1040px, 100% - 2rem); margin-inline: auto; }
+  .ico { width: 1.15rem; height: 1.15rem; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-  /* Hero: the banner itself */
-  .hero { background: var(--navy-900); border-bottom: 4px solid var(--gold); }
-  .hero img { width: 100%; height: auto; margin: 0 auto; max-width: 1600px; }
+  /* Nav */
+  .nav { position: sticky; top: 0; z-index: 20; background: rgba(7, 13, 36, .8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 56px; }
+  .brand { display: flex; align-items: center; gap: .55rem; font-weight: 700; text-decoration: none; font-size: 1rem; }
+  .brand i { font-style: normal; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--gold); font-size: 1rem; }
+  .nav nav { display: flex; align-items: center; gap: 1.25rem; }
+  .nav .link { color: var(--mut); text-decoration: none; font-weight: 500; font-size: .95rem; }
+  .nav .link:hover { color: var(--ink); }
 
-  /* Gold ribbon with the three facts */
-  .ribbon {
-    background: linear-gradient(180deg, #ffe08a 0%, var(--gold) 45%, var(--gold-deep) 100%);
-    color: #0a1c57;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
-  }
-  .ribbon .wrap {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0;
-  }
-  .fact { padding: 1.1rem 1rem; text-align: center; }
-  .fact + .fact { border-left: 2px solid rgba(10, 28, 87, .22); }
-  .fact small { display: block; font-size: .95rem; font-weight: 600; opacity: .8; }
-  .fact strong { font-family: var(--serif); font-size: clamp(1.15rem, 2.6vw, 1.6rem); line-height: 1.35; font-weight: 800; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 44px; padding: 0 1.25rem; border-radius: 12px; font: inherit; font-weight: 600; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: transform .15s, background .15s; }
+  .btn:active { transform: scale(.98); }
+  .btn.primary { background: var(--gold); color: #1a1500; }
+  .btn.primary:hover { background: #ffd460; }
+  .btn.ghost { background: var(--surface); border-color: var(--line); color: var(--ink); }
+  .btn.ghost:hover { border-color: var(--gold); }
+  .btn.sm { min-height: 38px; padding: 0 1rem; font-size: .95rem; }
 
-  section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
-  h2 {
-    font-family: var(--serif);
-    font-weight: 800;
-    font-size: clamp(1.6rem, 3.6vw, 2.2rem);
-    line-height: 1.3;
-    margin: 0 0 1.25rem;
-    color: var(--ivory);
-  }
-  p { margin: 0 0 1rem; }
+  /* Hero */
+  .hero { padding: clamp(1.25rem, 4vw, 2.5rem) 0 0; }
+  .hero-grid { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: clamp(1.25rem, 4vw, 3rem); align-items: center; }
+  .tag-top { display: inline-flex; align-items: center; gap: .4rem; padding: .25rem .8rem; border-radius: 999px; background: var(--gold-soft); color: var(--gold); font-weight: 600; font-size: .88rem; margin-bottom: .8rem; }
+  h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(1.9rem, 6.2vw, 3rem); line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.01em; }
+  h1 span { color: var(--gold); }
+  .lead { margin: 0 0 1.25rem; color: var(--mut); font-size: clamp(.98rem, 2.4vw, 1.1rem); max-width: 38ch; }
+  .facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: .6rem; margin: 0 0 1.25rem; padding: 0; list-style: none; }
+  .facts li { display: flex; align-items: center; gap: .6rem; padding: .55rem .8rem; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
+  .facts .ic { color: var(--gold); display: grid; place-items: center; }
+  .facts small { display: block; color: var(--mut); font-size: .75rem; line-height: 1.1; }
+  .facts b { display: block; font-weight: 600; font-size: .92rem; line-height: 1.3; white-space: nowrap; }
+  .cta { display: flex; flex-wrap: wrap; gap: .6rem; }
 
-  .quote { text-align: center; padding-bottom: 1rem; }
-  .quote blockquote {
-    margin: 0 auto;
-    max-width: 22ch;
-    font-family: var(--serif);
-    font-weight: 700;
-    font-size: clamp(1.7rem, 4.6vw, 2.9rem);
-    line-height: 1.45;
-    color: var(--gold);
-    text-wrap: balance;
-  }
-  .quote p { max-width: 62ch; margin: 1.5rem auto 0; color: var(--muted); }
+  .poster { margin: 0; border-radius: 18px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(0, 0, 0, .4); background: var(--navy); }
+  .poster img { display: block; width: 100%; height: auto; aspect-ratio: 2 / 1; object-fit: cover; }
 
-  .two { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+  /* Countdown */
+  .count { margin-top: clamp(1.25rem, 3vw, 2rem); padding: .9rem 1.1rem; border-radius: var(--r); border: 1px solid var(--line); background: var(--surface); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; }
+  .count p { margin: 0; font-weight: 600; line-height: 1.35; }
+  .count p span { display: block; color: var(--mut); font-weight: 400; font-size: .88rem; }
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: .45rem; flex: 1 1 300px; max-width: 400px; margin-left: auto; }
+  .tile { text-align: center; padding: .4rem .2rem; border-radius: 12px; background: rgba(7, 13, 36, .6); border: 1px solid var(--line); }
+  .tile b { display: block; font-family: var(--serif); font-size: clamp(1.3rem, 5.5vw, 1.8rem); line-height: 1.25; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .tile small { color: var(--mut); font-size: .78rem; }
+  .count .done { font-family: var(--serif); font-size: 1.15rem; color: var(--gold); }
 
-  .program { list-style: none; margin: 0; padding: 0; }
-  .program li {
-    padding: .85rem 0 .85rem 1.1rem;
-    border-left: 4px solid var(--gold);
-    margin-bottom: .75rem;
-    background: linear-gradient(90deg, rgba(247, 201, 72, .12), transparent 70%);
-    font-weight: 500;
-    font-size: 1.1rem;
-  }
-  .menu { display: flex; flex-wrap: wrap; gap: .6rem; padding: 0; margin: 0; list-style: none; }
-  .menu li {
-    padding: .35rem .95rem;
-    border: 1.5px solid var(--line);
-    border-radius: 999px;
-    background: rgba(15, 42, 122, .55);
-  }
+  section.block { padding: clamp(2rem, 6vw, 3.5rem) 0 0; }
+  .eyebrow { color: var(--gold); font-weight: 600; font-size: .85rem; letter-spacing: .04em; margin: 0 0 .25rem; }
+  h2 { font-weight: 700; font-size: clamp(1.35rem, 4vw, 1.8rem); line-height: 1.3; margin: 0 0 1.1rem; }
+  h3 { font-size: 1.05rem; margin: 0 0 .9rem; }
+  .panel { padding: clamp(1rem, 3vw, 1.5rem); border-radius: var(--r); border: 1px solid var(--line); background: var(--surface); }
+
+  /* Program */
+  .prog-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1rem; align-items: start; }
+  .program { list-style: none; margin: 0; padding: 0; counter-reset: p; position: relative; }
+  .program::before { content: ""; position: absolute; left: 17px; top: 18px; bottom: 18px; width: 2px; background: linear-gradient(var(--gold), rgba(245, 197, 66, .1)); }
+  .program li { counter-increment: p; position: relative; display: flex; align-items: center; gap: .9rem; padding: .5rem 0; font-weight: 500; }
+  .program li::before { content: counter(p, bengali); flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--bg); border: 2px solid var(--gold); color: var(--gold); font-weight: 700; font-size: .95rem; position: relative; z-index: 1; }
+  .menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .menu li { padding: .3rem .85rem; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: .95rem; }
 
   /* Payment */
-  .pay { background: linear-gradient(180deg, rgba(15, 42, 122, .55), rgba(10, 28, 87, .25)); border-block: 1px solid var(--line); }
-  .fees { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
-  .fee { padding: 1.1rem 1.25rem; border: 1.5px solid var(--line); border-radius: 14px; background: rgba(5, 15, 49, .55); }
-  .fee small { color: var(--muted); display: block; }
-  .fee strong { font-family: var(--serif); font-size: 2rem; color: var(--gold); font-weight: 800; }
-  .bkash {
-    display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;
-    padding: 1.25rem 1.5rem; border-radius: 14px;
-    background: var(--ivory); color: #0a1c57;
-  }
-  .bkash small { display: block; font-weight: 600; opacity: .75; }
-  .bkash .num { font-family: var(--serif); font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; letter-spacing: .04em; }
-  button.copy {
-    font: inherit; font-weight: 700; cursor: pointer;
-    padding: .65rem 1.4rem; border-radius: 999px; border: 0;
-    background: #0a1c57; color: var(--gold);
-  }
-  button.copy:hover { background: var(--navy-800); }
-  .rules { margin: 1.5rem 0 0; padding-left: 1.2rem; color: var(--ink); }
-  .rules li { margin-bottom: .4rem; }
-  .rules b { color: var(--gold); }
+  .pay-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; align-items: stretch; }
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: .9rem; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; align-items: start; }
+  .steps li::before { content: counter(s, bengali); display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--gold); color: #1a1500; font-weight: 700; font-size: .9rem; }
+  .steps b { color: var(--gold); font-weight: 600; }
+  .steps p { margin: 0; }
+  .steps small { color: var(--mut); display: block; font-size: .88rem; }
+  .bk { padding: clamp(1.1rem, 3.5vw, 1.6rem); border-radius: 22px; color: var(--navy); background: linear-gradient(150deg, #fff1c9, var(--gold)); box-shadow: 0 14px 40px rgba(0, 0, 0, .35); display: flex; flex-direction: column; gap: .9rem; justify-content: space-between; }
+  .bk small { display: block; font-weight: 600; opacity: .75; font-size: .85rem; }
+  .bk .num { font-family: var(--serif); font-weight: 800; font-size: clamp(1.5rem, 7vw, 2rem); letter-spacing: .03em; line-height: 1.25; word-break: break-all; }
+  .bk .fees { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; }
+  .bk .fees div { padding: .6rem .8rem; border-radius: 12px; background: rgba(11, 22, 80, .1); }
+  .bk .fees b { font-family: var(--serif); font-size: 1.3rem; display: block; line-height: 1.3; }
+  .bk .copy { background: var(--navy); color: var(--gold); }
+  .bk .copy:hover { background: #14267a; }
+  .bk .due { font-weight: 600; margin: 0; font-size: .95rem; }
 
-  /* Payment board */
-  .summary { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: end; justify-content: space-between; margin-bottom: 1rem; }
-  .summary .big { font-family: var(--serif); font-weight: 800; font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; color: var(--gold); }
-  .summary .big span { font-size: 1.1rem; color: var(--ink); font-weight: 600; }
-  .bar { height: 14px; border-radius: 999px; background: rgba(255, 255, 255, .12); overflow: hidden; margin-bottom: .5rem; }
-  .bar i {
-    display: block; height: 100%; width: 0;
-    background: linear-gradient(90deg, var(--gold-deep), var(--gold));
-    border-radius: inherit;
-    transition: width 1.2s cubic-bezier(.2, .8, .2, 1);
-  }
-  .updated { color: var(--muted); font-size: .95rem; margin-bottom: 1.25rem; }
+  /* Board */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin-bottom: .9rem; }
+  .stat { padding: .75rem .9rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
+  .stat b { display: block; font-family: var(--serif); font-size: clamp(1.5rem, 6vw, 2.1rem); line-height: 1.2; }
+  .stat span { color: var(--mut); font-size: .88rem; }
+  .stat.hl { background: var(--gold); border-color: var(--gold); color: #1a1500; }
+  .stat.hl span { color: #1a1500; opacity: .75; }
+  .bar { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #c9931b, var(--gold)); transition: width 1.2s cubic-bezier(.2, .8, .2, 1); }
+  .updated { color: var(--mut); font-size: .85rem; margin: .5rem 0 1rem; }
+  .tools { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: .9rem; }
+  .search { position: relative; flex: 1 1 220px; }
+  .search svg { position: absolute; left: .9rem; top: 50%; transform: translateY(-50%); color: var(--mut); }
+  .search input { width: 100%; min-height: 46px; font: inherit; color: var(--ink); padding: 0 1rem 0 2.6rem; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .search input::placeholder { color: var(--mut); }
+  .seg { display: grid; grid-template-columns: repeat(3, 1fr); padding: 3px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
+  .seg button { font: inherit; font-weight: 600; font-size: .95rem; min-height: 40px; padding: 0 1rem; border: 0; border-radius: 9px; background: transparent; color: var(--mut); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--gold); color: #1a1500; }
 
-  .tools { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1rem; }
-  .tools input[type=search] {
-    flex: 1 1 240px; font: inherit; color: var(--ink);
-    padding: .7rem 1rem; border-radius: 12px;
-    border: 1.5px solid var(--line); background: rgba(5, 15, 49, .7);
-  }
-  .tools input::placeholder { color: var(--muted); }
-  .tabs { display: inline-flex; border: 1.5px solid var(--line); border-radius: 12px; overflow: hidden; }
-  .tabs button {
-    font: inherit; font-weight: 600; cursor: pointer; color: var(--ink);
-    padding: .7rem 1.1rem; border: 0; background: transparent;
-  }
-  .tabs button + button { border-left: 1.5px solid var(--line); }
-  .tabs button[aria-pressed="true"] { background: var(--gold); color: #0a1c57; }
+  .list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem .75rem; }
+  .row { display: grid; grid-template-columns: 1.8rem 1fr auto; gap: .6rem; align-items: center; padding: .65rem .8rem; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); }
+  .row.paid { border-color: rgba(245, 197, 66, .35); }
+  .row .sl { color: var(--mut); text-align: center; font-size: .82rem; font-variant-numeric: tabular-nums; }
+  .row .who { min-width: 0; }
+  .row .who b { display: block; font-weight: 600; line-height: 1.35; overflow-wrap: anywhere; }
+  .row .who small { color: var(--mut); font-size: .82rem; }
+  .row .st { text-align: right; line-height: 1.2; }
+  .row .st em { display: block; font-style: normal; color: var(--mut); font-size: .78rem; margin-top: .2rem; min-height: 1em; }
+  .tag { display: inline-block; padding: .15rem .7rem; border-radius: 999px; font-weight: 700; font-size: .82rem; border: 1px solid rgba(148, 163, 207, .4); color: var(--mut); }
+  .row.paid .tag { background: var(--gold); border-color: var(--gold); color: #1a1500; }
+  .empty { grid-column: 1 / -1; padding: 1.25rem .25rem; color: var(--mut); }
 
-  .list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-  .row {
-    display: grid; grid-template-columns: 2.5rem 1fr auto 6.5rem; gap: .75rem; align-items: center;
-    padding: .8rem .25rem; border-bottom: 1px solid var(--line);
-  }
-  .row .sl { color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
-  .row .who strong { display: block; font-weight: 600; line-height: 1.35; }
-  .row .who small { color: var(--muted); font-size: .9rem; letter-spacing: .02em; }
-  .row .method { color: var(--ivory); font-weight: 500; }
-  .pill {
-    justify-self: end; padding: .2rem .9rem; border-radius: 999px; font-weight: 700; font-size: .95rem;
-    border: 1.5px solid rgba(169, 183, 224, .5); color: var(--muted);
-  }
-  .row.paid .pill { background: var(--gold); border-color: var(--gold); color: #0a1c57; }
-  .row.paid { background: linear-gradient(90deg, rgba(247, 201, 72, .10), transparent 60%); }
-  .empty { padding: 1.5rem .25rem; color: var(--muted); }
+  footer { margin-top: clamp(2.5rem, 7vw, 4rem); padding: 1.75rem 0 calc(2rem + env(safe-area-inset-bottom)); text-align: center; color: var(--mut); border-top: 1px solid var(--line); font-size: .92rem; }
+  footer b { color: var(--ink); display: block; }
 
-  footer { padding: 2.5rem 0 3rem; text-align: center; color: var(--muted); border-top: 4px solid var(--gold); background: var(--navy-900); }
-  footer strong { color: var(--ivory); font-family: var(--serif); }
-
-  @media (max-width: 760px) {
-    .two { grid-template-columns: 1fr; }
-    .fact { padding: .8rem .4rem; }
-    .fact small { font-size: .8rem; }
-    .row { grid-template-columns: 1.8rem 1fr auto; }
-    .row .method { grid-column: 2; grid-row: 2; font-size: .92rem; color: var(--muted); }
-    .row .pill { grid-column: 3; grid-row: 1 / span 2; }
+  @media (max-width: 860px) {
+    .hero-grid, .prog-grid, .pay-grid { grid-template-columns: 1fr; }
+    .poster { order: -1; }
+    .tiles { margin-left: 0; max-width: none; flex-basis: 100%; }
+    .nav .link { display: none; }
   }
-  @media (max-width: 480px) {
-    .fees { grid-template-columns: 1fr; }
-    .tabs { width: 100%; }
-    .tabs button { flex: 1; padding-inline: .4rem; }
+  @media (max-width: 640px) {
+    .list { grid-template-columns: 1fr; }
+    .facts { grid-template-columns: 1fr; }
+    .facts li { padding: .5rem .75rem; }
+    .cta .btn { flex: 1 1 100%; }
+    .seg { width: 100%; }
+    .bk .fees { grid-template-columns: 1fr 1fr; }
+    .count { padding: .8rem; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .bar i { transition: none; }
+  @media (max-width: 380px) {
+    .bk .fees { grid-template-columns: 1fr; }
+    .stat { padding: .6rem .65rem; }
   }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bar i, .btn { transition: none; } }
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <img src="banner.jpg" width="1800" height="900" alt="Farewell Night, EEE 31st Batch (Evening), Port City International University। ১৪ নভেম্বর ২০২৬, Asian Bistro।">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><i aria-hidden="true">🎓</i><span>ইইই ৩১ ফেয়ারওয়েল</span></a>
+    <nav aria-label="প্রধান মেনু">
+      <a class="link" href="#details">অনুষ্ঠান</a>
+      <a class="link" href="#pay">পেমেন্ট</a>
+      <a class="link" href="#board">তালিকা</a>
+      <a class="btn primary sm" href="#pay">পেমেন্ট করো</a>
+    </nav>
+  </div>
 </header>
 
-<div class="ribbon" role="region" aria-label="অনুষ্ঠানের মূল তথ্য">
-  <div class="wrap">
-    <div class="fact"><small>তারিখ</small><strong id="f-date">১৪ নভেম্বর ২০২৬ (শনিবার)</strong></div>
-    <div class="fact"><small>সময়</small><strong id="f-time">সন্ধ্যা ৬:০০ টা</strong></div>
-    <div class="fact"><small>স্থান</small><strong id="f-venue">Asian Bistro</strong></div>
-  </div>
-</div>
-
-<main>
-  <section class="quote">
+<main id="top">
+  <section class="hero">
     <div class="wrap">
-      <blockquote>স্মৃতি থাকুক প্রাণে, পথচলা চলুক জীবনের টানে।</blockquote>
-      <p>আমাদের বিশ্ববিদ্যালয়ের রঙিন দিনগুলোর শেষ অধ্যায় এবং ভালোবাসার স্মৃতিগুলোকে একসঙ্গে উদ্‌যাপন করতে ইইই ৩১তম ব্যাচের (ইভিনিং) বিদায়ি সন্ধ্যার এই আয়োজন। সবাই আসবে, সবাই থাকবে।</p>
-    </div>
-  </section>
-
-  <section id="details">
-    <div class="wrap two">
-      <div>
-        <h2>সন্ধ্যায় যা থাকছে</h2>
-        <ul class="program">
-          <li>শিক্ষক মহোদয়দের বক্তব্য</li>
-          <li>শিক্ষার্থীদের স্মৃতিচারণ</li>
-          <li>ক্রেস্ট প্রদান</li>
-          <li>ব্যান্ড শো</li>
-          <li>একসাথে নৈশভোজ</li>
-        </ul>
-      </div>
-      <div>
-        <h2>খাবারের মেন্যু</h2>
-        <ul class="menu">
-          <li>পোলাও</li>
-          <li>মুরগি রোস্ট</li>
-          <li>চিংড়ি</li>
-          <li>ডিম কারি</li>
-          <li>চায়নিজ ভেজিটেবল</li>
-          <li>সালাদ</li>
-          <li>সফট ড্রিংকস</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="pay" class="pay">
-    <div class="wrap">
-      <h2>রেজিস্ট্রেশন ও পেমেন্ট</h2>
-      <div class="fees">
-        <div class="fee"><small>শিক্ষার্থী</small><strong>১,০০০ ৳</strong></div>
-        <div class="fee"><small>পার্সোনাল গেস্ট</small><strong>৫০০ ৳</strong></div>
-      </div>
-      <div class="bkash">
+      <div class="hero-grid">
         <div>
-          <small>বিকাশ নম্বর</small>
-          <div class="num" id="bkash-num">01864573879</div>
+          <span class="tag-top">ইইই ৩১তম ব্যাচ (ইভিনিং)</span>
+          <h1>ফেয়ারওয়েল <span>নাইট</span></h1>
+          <p class="lead">স্মৃতি থাকুক প্রাণে, পথচলা চলুক জীবনের টানে।</p>
+          <ul class="facts">
+            <li><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></span><span><small>তারিখ</small><b>১৪ নভেম্বর ২০২৬, শনিবার</b></span></li>
+            <li><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><small>সময়</small><b>সন্ধ্যা ৬:০০ টা</b></span></li>
+            <li><span class="ic"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span><small>স্থান</small><b>Asian Bistro</b></span></li>
+          </ul>
+          <div class="cta">
+            <a class="btn primary" href="#pay">রেজিস্ট্রেশন ও পেমেন্ট</a>
+            <a class="btn ghost" href="#board">পেমেন্ট তালিকা</a>
+          </div>
         </div>
-        <button class="copy" id="copy-btn" type="button">নম্বর কপি করো</button>
+        <figure class="poster">
+          <img src="banner.jpg" width="1400" height="700" alt="Farewell Night, EEE 31st Batch (Evening), Port City International University। ১৪ নভেম্বর ২০২৬, Asian Bistro।">
+        </figure>
       </div>
-      <ul class="rules">
-        <li>বিকাশে পাঠালে শিক্ষার্থীরা <b>১,০২০ টাকা</b> পাঠাবে (১,০০০ টাকা ফি আর ২০ টাকা চার্জ)।</li>
-        <li>বিকাশে টাকা পাঠানোর সময় <b>রেফারেন্সে নিজের ID নম্বর</b> লিখবে।</li>
-        <li>ক্যাশেও পেমেন্ট করা যাবে।</li>
-        <li>টাকা দেওয়ার শেষ তারিখ: <b id="deadline">৬ নভেম্বর ২০২৬</b></li>
-      </ul>
+
+      <div class="count" id="count" aria-live="off">
+        <p>অনুষ্ঠান শুরু হতে বাকি<span>১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০ টা</span></p>
+        <div class="tiles" id="tiles">
+          <div class="tile"><b id="c-d">০০</b><small>দিন</small></div>
+          <div class="tile"><b id="c-h">০০</b><small>ঘণ্টা</small></div>
+          <div class="tile"><b id="c-m">০০</b><small>মিনিট</small></div>
+          <div class="tile"><b id="c-s">০০</b><small>সেকেন্ড</small></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="board">
+  <section class="block" id="details">
     <div class="wrap">
+      <p class="eyebrow">প্রোগ্রাম</p>
+      <h2>সন্ধ্যায় যা থাকছে</h2>
+      <div class="prog-grid">
+        <div class="panel">
+          <ol class="program">
+            <li>শিক্ষকদের আগমন ও বরণ</li>
+            <li>শিক্ষার্থীদের স্মৃতিচারণ</li>
+            <li>ক্রেস্ট ও গিফট প্রদান</li>
+            <li>শিক্ষক মহোদয়দের বক্তব্য</li>
+            <li>সঙ্গীত অনুষ্ঠান</li>
+            <li>নৈশভোজ</li>
+          </ol>
+        </div>
+        <div class="panel">
+          <h3>খাবারের মেন্যু</h3>
+          <ul class="menu">
+            <li>পোলাও</li><li>মুরগি রোস্ট</li><li>চিংড়ি</li><li>ডিম কারি</li><li>চায়নিজ ভেজিটেবল</li><li>সালাদ</li><li>সফট ড্রিংকস</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="pay">
+    <div class="wrap">
+      <p class="eyebrow">পেমেন্ট</p>
+      <h2>রেজিস্ট্রেশন ও পেমেন্ট</h2>
+      <div class="pay-grid">
+        <div class="panel">
+          <h3>বিকাশে পেমেন্ট করার নিয়ম</h3>
+          <ol class="steps">
+            <li><p>পাশের নম্বরে <b>১,০২০ টাকা</b> পাঠাও।<small>১,০০০ টাকা ফি আর ২০ টাকা বিকাশ চার্জ।</small></p></li>
+            <li><p>রেফারেন্সে <b>নিজের ID নম্বর</b> লেখো।<small>যেমন: EEE 031 07391</small></p></li>
+            <li><p>নিচের তালিকায় নিজের নামের পাশে <b>Paid</b> দেখো।<small>আপডেট হতে কয়েক মিনিট লাগতে পারে। ক্যাশেও পেমেন্ট করা যাবে।</small></p></li>
+          </ol>
+        </div>
+        <div class="bk">
+          <div>
+            <small>বিকাশ নম্বর</small>
+            <div class="num" id="bkash-num">01864573879</div>
+          </div>
+          <div class="fees">
+            <div><small>শিক্ষার্থী</small><b>১,০০০ ৳</b></div>
+            <div><small>পার্সোনাল গেস্ট</small><b>৫০০ ৳</b></div>
+          </div>
+          <p class="due">শেষ তারিখ: <span id="deadline">৬ নভেম্বর ২০২৬</span></p>
+          <button class="btn copy" id="copy-btn" type="button">নম্বর কপি করো</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="board">
+    <div class="wrap">
+      <p class="eyebrow">তালিকা</p>
       <h2>কে কে পেমেন্ট করেছে</h2>
-      <div class="summary">
-        <div class="big" id="paid-count">০ <span>জন পেমেন্ট করেছে</span></div>
-        <div id="pending-count" class="muted" style="color:var(--muted)"></div>
+      <div class="stats">
+        <div class="stat hl"><b id="s-paid">০</b><span>পেমেন্ট করেছে</span></div>
+        <div class="stat"><b id="s-pending">০</b><span>বাকি</span></div>
+        <div class="stat"><b id="s-total">০</b><span>মোট</span></div>
       </div>
       <div class="bar" role="progressbar" aria-label="পেমেন্টের অগ্রগতি" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><i id="bar-fill"></i></div>
       <p class="updated" id="updated"></p>
 
       <div class="tools">
-        <input type="search" id="q" placeholder="নাম বা ID দিয়ে খোঁজো" aria-label="নাম বা ID দিয়ে খোঁজো" autocomplete="off">
-        <div class="tabs" role="group" aria-label="ফিল্টার">
+        <label class="search">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+          <input type="search" id="q" placeholder="নাম বা ID দিয়ে খোঁজো" aria-label="নাম বা ID দিয়ে খোঁজো" autocomplete="off">
+        </label>
+        <div class="seg" role="group" aria-label="ফিল্টার">
           <button type="button" data-f="all" aria-pressed="true">সবাই</button>
           <button type="button" data-f="paid" aria-pressed="false">দিয়েছে</button>
           <button type="button" data-f="pending" aria-pressed="false">বাকি</button>
@@ -296,225 +309,47 @@
 
 <footer>
   <div class="wrap">
-    <strong>ইইই ৩১তম ব্যাচ (ইভিনিং)</strong>
+    <b>ইইই ৩১তম ব্যাচ (ইভিনিং)</b>
     <div>পোর্ট সিটি ইন্টারন্যাশনাল ইউনিভার্সিটি</div>
-    <div style="margin-top:.5rem">A Night to Remember, A Journey to Cherish</div>
+    <div style="margin-top:.4rem">A Night to Remember, A Journey to Cherish</div>
   </div>
 </footer>
 
+<!-- সেটিংস ও ডাটা এই ফাইলে: config.js -->
+<script src="config.js"></script>
 <script>
-/* ============ সেটিংস: এখানে শুধু এই অংশটুকু বদলালেই হবে ============ */
-const CONFIG = {
-  // Google Sheets থেকে "Publish to web" করা CSV লিংকটি এখানে বসাও (কোটেশনের ভেতরে)।
-  // খালি রাখলে নিচের SNAPSHOT ডাটা দেখাবে।
-  SHEET_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTIORD07AAbxcwSqFV7TaoQvtIRXSKJYpowZpTZl6Mrkk5tqhYMmdqDUcu_7IBF3ExJaZ6rcDVsJ4O8/pub?gid=0&single=true&output=csv",
-  // শিটের কলামের হেডার (যেভাবে শিটে লেখা আছে)
-  COL_ID: "Student ID",
-  COL_NAME: "Name",
-  COL_PAID_BY: "Paid by",
-  SNAPSHOT_DATE: "৫ নভেম্বর ২০২৬"
-};
-
-/* শিট সংযুক্ত না থাকলে বা লোড না হলে এই তালিকা দেখাবে */
-const SNAPSHOT = [
- {
-  "id": "EEE 031 07391",
-  "name": "Ritu Biswas",
-  "by": "bKash"
- },
- {
-  "id": "EEE 031 07394",
-  "name": "Tanmoy Dey",
-  "by": ""
- },
- {
-  "id": "EEE 031 07398",
-  "name": "Md. Tasimul Islam Novel",
-  "by": ""
- },
- {
-  "id": "EEE 031 07403",
-  "name": "Nazia Afrin",
-  "by": "Cash"
- },
- {
-  "id": "EEE 031 07404",
-  "name": "Sheikh Rakib Hyder",
-  "by": ""
- },
- {
-  "id": "EEE 031 07405",
-  "name": "Md. Sabbir Ahmed",
-  "by": ""
- },
- {
-  "id": "EEE 031 07407",
-  "name": "Md. Robiul Islam",
-  "by": ""
- },
- {
-  "id": "EEE 031 07408",
-  "name": "Mohammad Ashraf Ullah",
-  "by": ""
- },
- {
-  "id": "EEE 031 07409",
-  "name": "Md. Sayed Mahafujul Hoque Rakin",
-  "by": ""
- },
- {
-  "id": "EEE 031 07411",
-  "name": "Md. Fajla Rabbi",
-  "by": ""
- },
- {
-  "id": "EEE 031 07412",
-  "name": "Md. Zia Uddin",
-  "by": ""
- },
- {
-  "id": "EEE 031 07413",
-  "name": "Dipto Biswas",
-  "by": ""
- },
- {
-  "id": "EEE 031 07414",
-  "name": "Mohammad Rakib Hossen Rasel",
-  "by": ""
- },
- {
-  "id": "EEE 031 07415",
-  "name": "Joyanta Dey",
-  "by": ""
- },
- {
-  "id": "EEE 031 07423",
-  "name": "Mohammad Huzaifa",
-  "by": ""
- },
- {
-  "id": "EEE 031 07426",
-  "name": "Rakibul Islam",
-  "by": ""
- },
- {
-  "id": "EEE 031 07430",
-  "name": "Ajoy Das",
-  "by": ""
- },
- {
-  "id": "EEE 031 07436",
-  "name": "Md. Serajul Islam",
-  "by": ""
- },
- {
-  "id": "EEE 031 07439",
-  "name": "Abdul Halim",
-  "by": ""
- },
- {
-  "id": "EEE 031 07441",
-  "name": "Shafiul Azam",
-  "by": ""
- },
- {
-  "id": "EEE 031 07442",
-  "name": "Abdullah Al Mamun",
-  "by": ""
- },
- {
-  "id": "EEE 031 07444",
-  "name": "Durjoy Chowdhury",
-  "by": ""
- },
- {
-  "id": "EEE 031 07445",
-  "name": "Dipon Dey",
-  "by": ""
- },
- {
-  "id": "EEE 031 07451",
-  "name": "Md. Sakib Uddin",
-  "by": "bKash"
- },
- {
-  "id": "EEE 031 07452",
-  "name": "Jamshedul Islam Rakib",
-  "by": ""
- },
- {
-  "id": "EEE 031 07454",
-  "name": "Sanjida Islam Akhi",
-  "by": "Cash"
- },
- {
-  "id": "EEE 031 07455",
-  "name": "Utsab Datta",
-  "by": "Cash"
- },
- {
-  "id": "EEE 031 07460",
-  "name": "Abdullah Al Kafi",
-  "by": ""
- },
- {
-  "id": "EEE 031 07461",
-  "name": "Md. Rakibul Absar",
-  "by": ""
- },
- {
-  "id": "EEE 031 07463",
-  "name": "Mohammad Habibur Rahman",
-  "by": ""
- },
- {
-  "id": "EEE 031 07464",
-  "name": "Muhammad Moun Khan Shaoun",
-  "by": ""
- },
- {
-  "id": "EEE 031 07469",
-  "name": "Abid Ahmad",
-  "by": ""
- },
- {
-  "id": "EEE 031 07470",
-  "name": "Ohidul Islam",
-  "by": ""
- },
- {
-  "id": "EEE 031 07473",
-  "name": "Md. Masudur Rahman Shakil",
-  "by": ""
- },
- {
-  "id": "EEE 031 07482",
-  "name": "Md. Shaharia Nishad",
-  "by": ""
- },
- {
-  "id": "EEE 031 07483",
-  "name": "Hridoy Nath",
-  "by": ""
- },
- {
-  "id": "EEE 031 07484",
-  "name": "Yasin Arafat Sajib",
-  "by": ""
- },
- {
-  "id": "EEE 031 07489",
-  "name": "Probesh Dey",
-  "by": ""
- }
-];
-/* ================================================================== */
+const CFG = (typeof CONFIG !== "undefined") ? CONFIG : {};
+const DATA = (typeof SNAPSHOT !== "undefined") ? SNAPSHOT : [];
+const COL = { id: CFG.COL_ID || "Student ID", name: CFG.COL_NAME || "Name", by: CFG.COL_PAID_BY || "Paid by" };
 
 const bn = new Intl.NumberFormat("bn-BD");
+const bn2 = new Intl.NumberFormat("bn-BD", { minimumIntegerDigits: 2 });
 const $ = (id) => document.getElementById(id);
 let students = [];
 let filter = "all";
 
+if (CFG.DEADLINE) $("deadline").textContent = CFG.DEADLINE;
+
+/* ---------- Countdown ---------- */
+const START = new Date(CFG.EVENT_START || "2026-11-14T18:00:00+06:00").getTime();
+function tick() {
+  const diff = START - Date.now();
+  if (diff <= 0) {
+    $("count").innerHTML = '<p class="done">আজ সেই রাত! ফেয়ারওয়েল নাইট শুরু হয়েছে।</p>';
+    return false;
+  }
+  const s = Math.floor(diff / 1000);
+  $("c-d").textContent = bn2.format(Math.floor(s / 86400));
+  $("c-h").textContent = bn2.format(Math.floor((s % 86400) / 3600));
+  $("c-m").textContent = bn2.format(Math.floor((s % 3600) / 60));
+  $("c-s").textContent = bn2.format(s % 60);
+  return true;
+}
+if (tick()) {
+  const t = setInterval(() => { if (!tick()) clearInterval(t); }, 1000);
+}
+
+/* ---------- CSV ---------- */
 function parseCSV(text) {
   const rows = []; let row = [], cur = "", q = false;
   for (let i = 0; i < text.length; i++) {
@@ -531,21 +366,17 @@ function parseCSV(text) {
   if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
   return rows;
 }
-
 function fromCSV(text) {
   const rows = parseCSV(text);
   const norm = (s) => String(s || "").trim().toLowerCase();
-  const h = rows.findIndex((r) => r.some((c) => norm(c) === norm(CONFIG.COL_ID)));
+  const h = rows.findIndex((r) => r.some((c) => norm(c) === norm(COL.id)));
   if (h < 0) throw new Error("হেডার পাওয়া যায়নি");
   const head = rows[h].map(norm);
-  const iId = head.indexOf(norm(CONFIG.COL_ID));
-  const iName = head.indexOf(norm(CONFIG.COL_NAME));
-  const iPaid = head.indexOf(norm(CONFIG.COL_PAID_BY));
+  const iId = head.indexOf(norm(COL.id)), iName = head.indexOf(norm(COL.name)), iBy = head.indexOf(norm(COL.by));
   return rows.slice(h + 1)
     .filter((r) => (r[iName] || "").trim() !== "")
-    .map((r) => ({ id: (r[iId] || "").trim(), name: r[iName].trim(), by: (r[iPaid] || "").trim() }));
+    .map((r) => ({ id: (r[iId] || "").trim(), name: r[iName].trim(), by: (r[iBy] || "").trim() }));
 }
-
 function methodLabel(by) {
   const k = by.toLowerCase().replace(/\s+/g, "");
   if (!k) return "";
@@ -554,16 +385,19 @@ function methodLabel(by) {
   return by;
 }
 
+/* ---------- Render ---------- */
 function render() {
   const total = students.length;
   const paid = students.filter((s) => s.by).length;
   const pct = total ? Math.round((paid / total) * 100) : 0;
-  $("paid-count").innerHTML = bn.format(paid) + " <span>জন পেমেন্ট করেছে</span>";
-  $("pending-count").textContent = "মোট " + bn.format(total) + " জনের মধ্যে বাকি " + bn.format(total - paid) + " জন";
+  $("s-paid").textContent = bn.format(paid);
+  $("s-pending").textContent = bn.format(total - paid);
+  $("s-total").textContent = bn.format(total);
   $("bar").setAttribute("aria-valuenow", pct);
   requestAnimationFrame(() => { $("bar-fill").style.width = pct + "%"; });
 
   const term = $("q").value.trim().toLowerCase();
+  const termId = term.replace(/\s+/g, "");
   const list = $("list");
   list.textContent = "";
   let shown = 0;
@@ -571,18 +405,20 @@ function render() {
     const isPaid = !!s.by;
     if (filter === "paid" && !isPaid) return;
     if (filter === "pending" && isPaid) return;
-    if (term && !(s.name.toLowerCase().includes(term) || s.id.toLowerCase().replace(/\s+/g, "").includes(term.replace(/\s+/g, "")))) return;
+    if (term && !(s.name.toLowerCase().includes(term) || s.id.toLowerCase().replace(/\s+/g, "").includes(termId))) return;
     shown++;
     const li = document.createElement("li");
     li.className = "row" + (isPaid ? " paid" : "");
     const sl = document.createElement("span"); sl.className = "sl"; sl.textContent = bn.format(i + 1);
     const who = document.createElement("span"); who.className = "who";
-    const n = document.createElement("strong"); n.textContent = s.name;
+    const n = document.createElement("b"); n.textContent = s.name;
     const id = document.createElement("small"); id.textContent = s.id;
     who.append(n, id);
-    const m = document.createElement("span"); m.className = "method"; m.textContent = methodLabel(s.by);
-    const p = document.createElement("span"); p.className = "pill"; p.textContent = isPaid ? "Paid" : "Pending";
-    li.append(sl, who, m, p);
+    const st = document.createElement("span"); st.className = "st";
+    const tag = document.createElement("span"); tag.className = "tag"; tag.textContent = isPaid ? "Paid" : "Pending";
+    const m = document.createElement("em"); m.textContent = methodLabel(s.by);
+    st.append(tag, m);
+    li.append(sl, who, st);
     list.append(li);
   });
   if (!shown) {
@@ -593,35 +429,34 @@ function render() {
 }
 
 async function load() {
-  students = SNAPSHOT.slice();
+  students = DATA.slice();
   let live = false;
-  if (CONFIG.SHEET_CSV_URL) {
+  if (CFG.SHEET_CSV_URL) {
     try {
-      const res = await fetch(CONFIG.SHEET_CSV_URL, { cache: "no-store" });
+      const res = await fetch(CFG.SHEET_CSV_URL, { cache: "no-store" });
       if (!res.ok) throw new Error(res.status);
       const data = fromCSV(await res.text());
       if (data.length) { students = data; live = true; }
-    } catch (e) { console.warn("শিট লোড হয়নি, SNAPSHOT দেখানো হচ্ছে:", e); }
+    } catch (e) { console.warn("শিট লোড হয়নি, সংরক্ষিত তালিকা দেখানো হচ্ছে:", e); }
   }
   $("updated").textContent = live
     ? "সর্বশেষ আপডেট: " + new Date().toLocaleString("bn-BD", { dateStyle: "medium", timeStyle: "short" }) + " (পেজ খোলার সময়)"
-    : "তালিকা " + CONFIG.SNAPSHOT_DATE + " পর্যন্ত হালনাগাদ।";
+    : "তালিকা " + (CFG.SNAPSHOT_DATE || "") + " পর্যন্ত হালনাগাদ।";
   render();
 }
 
 $("q").addEventListener("input", render);
-document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("click", () => {
+document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
   filter = b.dataset.f;
-  document.querySelectorAll(".tabs button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+  document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
   render();
 }));
 $("copy-btn").addEventListener("click", async () => {
   const btn = $("copy-btn");
   try { await navigator.clipboard.writeText($("bkash-num").textContent.trim()); btn.textContent = "কপি হয়েছে"; }
-  catch (e) { btn.textContent = "নম্বর সিলেক্ট করে কপি করো"; }
+  catch (e) { btn.textContent = "নম্বরটা চেপে ধরে কপি করো"; }
   setTimeout(() => (btn.textContent = "নম্বর কপি করো"), 2000);
 });
-
 load();
 </script>
 </body>
