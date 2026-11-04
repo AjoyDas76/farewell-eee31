@@ -6,6 +6,26 @@
 <meta name="theme-color" content="#070d24">
 <title>ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)</title>
 <meta name="description" content="ইইই ৩১তম ব্যাচ (ইভিনিং) ফেয়ারওয়েল নাইট: ১৪ নভেম্বর ২০২৬, Asian Bistro। অনুষ্ঠানের তথ্য ও পেমেন্ট তালিকা।">
+
+<!-- শেয়ার প্রিভিউ (WhatsApp, Messenger, Facebook)।
+     নিচের YOUR-SITE.com লাইনগুলো আপনার সাইটের আসল ঠিকানা দিয়ে বদলান।
+     og:image এ অবশ্যই পুরো ঠিকানা (https://...) লাগে। -->
+<link rel="canonical" href="https://farewell-eee31.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="bn_BD">
+<meta property="og:site_name" content="ইইই ৩১তম ব্যাচ (ইভিনিং)">
+<meta property="og:title" content="ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)">
+<meta property="og:description" content="১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০টা, Asian Bistro। রেজিস্ট্রেশন, পেমেন্ট ও লোকেশন এক জায়গায়।">
+<meta property="og:url" content="https://farewell-eee31.vercel.app/">
+<meta property="og:image" content="https://farewell-eee31.vercel.app/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Farewell Night, EEE 31st Batch (Evening), Port City International University">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)">
+<meta name="twitter:description" content="১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০টা, Asian Bistro।">
+<meta name="twitter:image" content="https://farewell-eee31.vercel.app/share.jpg">
+<link rel="preload" as="image" href="banner.webp" type="image/webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -161,6 +181,33 @@
   .tag { display: inline-block; padding: .15rem .7rem; border-radius: 999px; font-weight: 700; font-size: .82rem; border: 1px solid rgba(148, 163, 207, .4); color: var(--mut); }
   .row.paid .tag { background: var(--gold); border-color: var(--gold); color: #1a1500; }
   .empty { grid-column: 1 / -1; padding: 1.25rem .25rem; color: var(--mut); }
+  .row mark { background: var(--gold-soft); color: var(--gold); border-radius: 4px; padding: 0 .1em; }
+  .row.hit { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(245, 197, 66, .25); animation: pulse 1.6s ease-out 2; }
+  @keyframes pulse { 50% { background: rgba(245, 197, 66, .16); } }
+
+  /* Money */
+  .money { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; margin: .9rem 0 0; }
+  .money div { padding: .7rem .9rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
+  .money span { display: block; color: var(--mut); font-size: .85rem; }
+  .money b { font-family: var(--serif); font-size: clamp(1.2rem, 4.5vw, 1.6rem); line-height: 1.3; }
+  .money .got b { color: var(--gold); }
+
+  /* Verify */
+  .verify { margin: 0 0 1.25rem; padding: clamp(1rem, 3vw, 1.4rem); border-radius: var(--r); border: 1px solid rgba(245, 197, 66, .3); background: linear-gradient(160deg, var(--gold-soft), var(--surface)); }
+  .verify h3 { margin: 0 0 .25rem; }
+  .verify > p { margin: 0 0 .8rem; color: var(--mut); font-size: .92rem; }
+  .vform { display: flex; gap: .6rem; flex-wrap: wrap; }
+  .vform input { flex: 1 1 200px; min-height: 46px; font: inherit; color: var(--ink); padding: 0 1rem; border-radius: 12px; border: 1px solid var(--line); background: rgba(7, 13, 36, .6); }
+  .vform input::placeholder { color: var(--mut); }
+  .vres { margin-top: .8rem; }
+  .vres:empty { display: none; }
+  .vcard { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .6rem 1rem; padding: .8rem 1rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(7, 13, 36, .55); }
+  .vcard.ok { border-color: var(--gold); }
+  .vcard b { display: block; line-height: 1.35; }
+  .vcard small { color: var(--mut); }
+  .vcard .msg { font-weight: 700; color: var(--gold); }
+  .vcard.no .msg, .vcard.nf .msg { color: var(--mut); }
+  .vlink { background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--gold); text-decoration: underline; cursor: pointer; }
 
   footer { margin-top: clamp(2.5rem, 7vw, 4rem); padding: 1.75rem 0 calc(2rem + env(safe-area-inset-bottom)); text-align: center; color: var(--mut); border-top: 1px solid var(--line); font-size: .92rem; }
   footer b { color: var(--ink); display: block; }
@@ -222,7 +269,10 @@
           </div>
         </div>
         <figure class="poster">
-          <img src="banner.jpg" width="1400" height="700" alt="Farewell Night, EEE 31st Batch (Evening), Port City International University। ১৪ নভেম্বর ২০২৬, Asian Bistro।">
+          <picture>
+            <source srcset="banner.webp" type="image/webp">
+            <img src="banner.jpg" width="1200" height="600" fetchpriority="high" decoding="async" alt="Farewell Night, EEE 31st Batch (Evening), Port City International University। ১৪ নভেম্বর ২০২৬, Asian Bistro।">
+          </picture>
         </figure>
       </div>
 
@@ -329,9 +379,23 @@
         <div class="stat"><b id="s-total">০</b><span>মোট</span></div>
       </div>
       <div class="bar" role="progressbar" aria-label="পেমেন্টের অগ্রগতি" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="bar"><i id="bar-fill"></i></div>
+      <div class="money">
+        <div class="got"><span>এ পর্যন্ত জমা হয়েছে</span><b id="m-got">০ ৳</b></div>
+        <div><span>বাকি আছে</span><b id="m-left">০ ৳</b></div>
+      </div>
       <p class="updated" id="updated"></p>
 
-      <div class="tools">
+      <form class="verify" id="vform" novalidate>
+        <h3>আমার পেমেন্ট হয়েছে কি?</h3>
+        <p>নিজের ID নম্বর লেখো। পুরো ID বা শেষের ৫ ডিজিট দিলেই চলবে।</p>
+        <div class="vform">
+          <input type="text" id="vid" inputmode="text" placeholder="যেমন: EEE 031 07391" aria-label="ID নম্বর" autocomplete="off">
+          <button class="btn primary" type="submit">চেক করো</button>
+        </div>
+        <div class="vres" id="vres" aria-live="polite"></div>
+      </form>
+
+      <div class="tools" id="tools">
         <label class="search">
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
           <input type="search" id="q" placeholder="নাম বা ID দিয়ে খোঁজো" aria-label="নাম বা ID দিয়ে খোঁজো" autocomplete="off">
@@ -365,8 +429,14 @@ const COL = { id: CFG.COL_ID || "Student ID", name: CFG.COL_NAME || "Name", by: 
 const bn = new Intl.NumberFormat("bn-BD");
 const bn2 = new Intl.NumberFormat("bn-BD", { minimumIntegerDigits: 2 });
 const $ = (id) => document.getElementById(id);
+const FEE = Number(CFG.FEE) || 1000;
 let students = [];
 let filter = "all";
+
+// ID মেলানোর জন্য: বাংলা সংখ্যাকে ইংরেজি করে, স্পেস ও চিহ্ন বাদ দিয়ে ছোট হাতের অক্ষরে আনে
+const BN_DIGITS = "০১২৩৪৫৬৭৮৯";
+const normId = (s) => String(s || "").replace(/[০-৯]/g, (d) => BN_DIGITS.indexOf(d)).toLowerCase().replace(/[^a-z0-9]/g, "");
+const money = (n) => bn.format(n) + " ৳";
 
 if (CFG.DEADLINE) $("deadline").textContent = CFG.DEADLINE;
 
@@ -426,13 +496,26 @@ function methodLabel(by) {
 }
 
 /* ---------- Render ---------- */
-function render() {
+// নামের মধ্যে খোঁজা অংশটা হাইলাইট করে (innerHTML ছাড়া, নিরাপদভাবে)
+function highlight(text, term) {
+  const frag = document.createDocumentFragment();
+  const at = term ? text.toLowerCase().indexOf(term) : -1;
+  if (at < 0) { frag.append(text); return frag; }
+  const mk = document.createElement("mark");
+  mk.textContent = text.slice(at, at + term.length);
+  frag.append(text.slice(0, at), mk, text.slice(at + term.length));
+  return frag;
+}
+
+function render(opts = {}) {
   const total = students.length;
   const paid = students.filter((s) => s.by).length;
   const pct = total ? Math.round((paid / total) * 100) : 0;
   $("s-paid").textContent = bn.format(paid);
   $("s-pending").textContent = bn.format(total - paid);
   $("s-total").textContent = bn.format(total);
+  $("m-got").textContent = money(paid * FEE);
+  $("m-left").textContent = money((total - paid) * FEE);
   $("bar").setAttribute("aria-valuenow", pct);
   requestAnimationFrame(() => { $("bar-fill").style.width = pct + "%"; });
 
@@ -448,11 +531,12 @@ function render() {
     if (term && !(s.name.toLowerCase().includes(term) || s.id.toLowerCase().replace(/\s+/g, "").includes(termId))) return;
     shown++;
     const li = document.createElement("li");
-    li.className = "row" + (isPaid ? " paid" : "");
+    li.className = "row" + (isPaid ? " paid" : "") + (opts.focus === i ? " hit" : "");
+    li.dataset.i = i;
     const sl = document.createElement("span"); sl.className = "sl"; sl.textContent = bn.format(i + 1);
     const who = document.createElement("span"); who.className = "who";
-    const n = document.createElement("b"); n.textContent = s.name;
-    const id = document.createElement("small"); id.textContent = s.id;
+    const n = document.createElement("b"); n.append(highlight(s.name, term));
+    const id = document.createElement("small"); id.append(highlight(s.id, term));
     who.append(n, id);
     const st = document.createElement("span"); st.className = "st";
     const tag = document.createElement("span"); tag.className = "tag"; tag.textContent = isPaid ? "Paid" : "Pending";
@@ -465,6 +549,17 @@ function render() {
     const li = document.createElement("li");
     li.className = "empty"; li.textContent = "কোনো নাম পাওয়া যায়নি। অন্য নাম বা ID দিয়ে খোঁজো।";
     list.append(li);
+  }
+
+  // নির্দিষ্ট ঘরে স্ক্রল (ভেরিফাই থেকে), অথবা সার্চের ফল চোখের বাইরে থাকলে তালিকার মাথায় স্ক্রল
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const behavior = reduce ? "auto" : "smooth";
+  const hit = list.querySelector(".hit");
+  if (hit) {
+    hit.scrollIntoView({ block: "center", behavior });
+  } else if (opts.fromSearch && term && shown) {
+    const top = $("tools").getBoundingClientRect().top;
+    if (top < 70 || top > innerHeight * 0.7) $("tools").scrollIntoView({ block: "start", behavior });
   }
 }
 
@@ -485,7 +580,61 @@ async function load() {
   render();
 }
 
-$("q").addEventListener("input", render);
+$("q").addEventListener("input", () => render({ fromSearch: true }));
+
+/* ---------- ID ভেরিফাই ---------- */
+function showVerify(kind, nodes) {
+  const box = $("vres");
+  box.textContent = "";
+  const card = document.createElement("div");
+  card.className = "vcard " + kind;
+  card.append(...nodes);
+  box.append(card);
+}
+function el(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text != null) e.textContent = text;
+  return e;
+}
+function verifyId(e) {
+  e.preventDefault();
+  const raw = $("vid").value.trim();
+  const n = normId(raw);
+  if (!n) { showVerify("nf", [el("span", "msg", "আগে নিজের ID নম্বর লেখো।")]); return; }
+  let found = students.filter((s) => normId(s.id) === n);
+  if (!found.length && n.length >= 4) found = students.filter((s) => normId(s.id).endsWith(n));
+  if (!found.length) {
+    showVerify("nf", [el("span", "msg", "এই ID তালিকায় পাওয়া যায়নি। নম্বরটা আবার দেখে লেখো।")]);
+    return;
+  }
+  if (found.length > 1) {
+    showVerify("nf", [el("span", "msg", "একাধিক নামের সাথে মিলেছে। পুরো ID লেখো।")]);
+    return;
+  }
+  const s = found[0];
+  const idx = students.indexOf(s);
+  const who = el("span");
+  who.append(el("b", "", s.name), el("small", "", s.id));
+  const right = el("span");
+  const isPaid = !!s.by;
+  const how = methodLabel(s.by);
+  right.append(el("span", "msg", isPaid ? "পেমেন্ট হয়েছে" + (how ? " (" + how + ")" : "") : "এখনো পেমেন্ট দেখা যাচ্ছে না"));
+  right.append(document.createElement("br"));
+  const go = el("button", "vlink", "তালিকায় দেখো");
+  go.type = "button";
+  go.addEventListener("click", () => {
+    filter = "all";
+    document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", x.dataset.f === "all" ? "true" : "false"));
+    $("q").value = "";
+    render({ focus: idx });
+  });
+  right.append(go);
+  const nodes = [who, right];
+  if (!isPaid) nodes.push(el("small", "", "বিকাশে পাঠালে আপডেট হতে কয়েক মিনিট লাগতে পারে। ক্যাশে দিয়ে থাকলে যাকে টাকা দিয়েছ, তাকে জানাও।"));
+  showVerify(isPaid ? "ok" : "no", nodes);
+}
+$("vform").addEventListener("submit", verifyId);
 document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
   filter = b.dataset.f;
   document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
