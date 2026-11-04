@@ -3,7 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#070d24">
+<meta name="theme-color" content="#070d24" id="theme-meta">
+<script>
+  /* পেজ আঁকার আগেই সেভ করা থিম বসায়, যাতে ঝলক না লাগে */
+  try { var th = localStorage.getItem("theme"); if (th === "light" || th === "dark") document.documentElement.dataset.theme = th; } catch (e) {}
+</script>
 <title>ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)</title>
 <meta name="description" content="ইইই ৩১তম ব্যাচ (ইভিনিং) ফেয়ারওয়েল নাইট: ১৪ নভেম্বর ২০২৬, Asian Bistro। অনুষ্ঠানের তথ্য ও পেমেন্ট তালিকা।">
 
@@ -39,6 +43,12 @@
     --line: rgba(255, 255, 255, .1);
     --gold: #f5c542;
     --gold-soft: rgba(245, 197, 66, .14);
+    --gold-ink: #f5c542;
+    --nav-bg: rgba(7, 13, 36, .8);
+    --panel: rgba(7, 13, 36, .6);
+    --glow-a: rgba(59, 108, 255, .3);
+    --glow-b: rgba(245, 197, 66, .07);
+    color-scheme: dark;
     --ink: #f1f4ff;
     --mut: #94a3cf;
     --blue: #3b6cff;
@@ -47,14 +57,29 @@
     --serif: "Baloo Da 2", "Anek Bangla", "Noto Sans Bengali", system-ui, sans-serif;
     --sans: "Anek Bangla", "Noto Sans Bengali", system-ui, sans-serif;
   }
+  :root[data-theme="light"] {
+    --bg: #f4f6fc;
+    --surface: #ffffff;
+    --surface-2: #e9edf8;
+    --line: rgba(11, 22, 80, .13);
+    --ink: #0e1633;
+    --mut: #56608a;
+    --gold-ink: #8a5a00;
+    --gold-soft: rgba(245, 197, 66, .28);
+    --nav-bg: rgba(244, 246, 252, .85);
+    --panel: rgba(233, 237, 248, .9);
+    --glow-a: rgba(59, 108, 255, .12);
+    --glow-b: rgba(245, 197, 66, .14);
+    color-scheme: light;
+  }
   * { box-sizing: border-box; }
   html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: 72px; -webkit-text-size-adjust: 100%; }
   body { margin: 0; font-family: var(--sans); font-size: 1rem; line-height: 1.6; color: var(--ink); overflow-x: hidden; }
   body::before {
     content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
-      radial-gradient(700px 420px at 85% -5%, rgba(59, 108, 255, .3), transparent 60%),
-      radial-gradient(500px 360px at 0% 40%, rgba(245, 197, 66, .07), transparent 60%);
+      radial-gradient(700px 420px at 85% -5%, var(--glow-a), transparent 60%),
+      radial-gradient(500px 360px at 0% 40%, var(--glow-b), transparent 60%);
   }
   img, svg { max-width: 100%; }
   a { color: inherit; }
@@ -63,7 +88,7 @@
   .ico { width: 1.15rem; height: 1.15rem; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
   /* Nav */
-  .nav { position: sticky; top: 0; z-index: 20; background: rgba(7, 13, 36, .8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+  .nav { position: sticky; top: 0; z-index: 20; background: var(--nav-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
   .nav-in { display: flex; align-items: center; justify-content: space-between; gap: .75rem; min-height: 56px; }
   .brand { display: flex; align-items: center; gap: .55rem; font-weight: 700; text-decoration: none; font-size: 1rem; }
   .brand i { font-style: normal; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--gold); font-size: 1rem; }
@@ -82,13 +107,13 @@
   /* Hero */
   .hero { padding: clamp(1.25rem, 4vw, 2.5rem) 0 0; }
   .hero-grid { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: clamp(1.25rem, 4vw, 3rem); align-items: center; }
-  .tag-top { display: inline-flex; align-items: center; gap: .4rem; padding: .25rem .8rem; border-radius: 999px; background: var(--gold-soft); color: var(--gold); font-weight: 600; font-size: .88rem; margin-bottom: .8rem; }
+  .tag-top { display: inline-flex; align-items: center; gap: .4rem; padding: .25rem .8rem; border-radius: 999px; background: var(--gold-soft); color: var(--gold-ink); font-weight: 600; font-size: .88rem; margin-bottom: .8rem; }
   h1 { font-family: var(--serif); font-weight: 800; font-size: clamp(1.9rem, 6.2vw, 3rem); line-height: 1.2; margin: 0 0 .5rem; letter-spacing: -.01em; }
-  h1 span { color: var(--gold); }
+  h1 span { color: var(--gold-ink); }
   .lead { margin: 0 0 1.25rem; color: var(--mut); font-size: clamp(.98rem, 2.4vw, 1.1rem); max-width: 38ch; }
   .facts { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: .6rem; margin: 0 0 1.25rem; padding: 0; list-style: none; }
   .facts li { display: flex; align-items: center; gap: .6rem; padding: .55rem .8rem; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); }
-  .facts .ic { color: var(--gold); display: grid; place-items: center; }
+  .facts .ic { color: var(--gold-ink); display: grid; place-items: center; }
   .facts small { display: block; color: var(--mut); font-size: .75rem; line-height: 1.1; }
   .facts b { display: block; font-weight: 600; font-size: .92rem; line-height: 1.3; white-space: nowrap; }
   .cta { display: flex; flex-wrap: wrap; gap: .6rem; }
@@ -101,13 +126,13 @@
   .count p { margin: 0; font-weight: 600; line-height: 1.35; }
   .count p span { display: block; color: var(--mut); font-weight: 400; font-size: .88rem; }
   .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: .45rem; flex: 1 1 300px; max-width: 400px; margin-left: auto; }
-  .tile { text-align: center; padding: .4rem .2rem; border-radius: 12px; background: rgba(7, 13, 36, .6); border: 1px solid var(--line); }
-  .tile b { display: block; font-family: var(--serif); font-size: clamp(1.3rem, 5.5vw, 1.8rem); line-height: 1.25; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .tile { text-align: center; padding: .4rem .2rem; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); }
+  .tile b { display: block; font-family: var(--serif); font-size: clamp(1.3rem, 5.5vw, 1.8rem); line-height: 1.25; color: var(--gold-ink); font-variant-numeric: tabular-nums; }
   .tile small { color: var(--mut); font-size: .78rem; }
-  .count .done { font-family: var(--serif); font-size: 1.15rem; color: var(--gold); }
+  .count .done { font-family: var(--serif); font-size: 1.15rem; color: var(--gold-ink); }
 
   section.block { padding: clamp(2rem, 6vw, 3.5rem) 0 0; }
-  .eyebrow { color: var(--gold); font-weight: 600; font-size: .85rem; letter-spacing: .04em; margin: 0 0 .25rem; }
+  .eyebrow { color: var(--gold-ink); font-weight: 600; font-size: .85rem; letter-spacing: .04em; margin: 0 0 .25rem; }
   h2 { font-weight: 700; font-size: clamp(1.35rem, 4vw, 1.8rem); line-height: 1.3; margin: 0 0 1.1rem; }
   h3 { font-size: 1.05rem; margin: 0 0 .9rem; }
   .panel { padding: clamp(1rem, 3vw, 1.5rem); border-radius: var(--r); border: 1px solid var(--line); background: var(--surface); }
@@ -117,18 +142,18 @@
   .program { list-style: none; margin: 0; padding: 0; counter-reset: p; position: relative; }
   .program::before { content: ""; position: absolute; left: 17px; top: 18px; bottom: 18px; width: 2px; background: linear-gradient(var(--gold), rgba(245, 197, 66, .1)); }
   .program li { counter-increment: p; position: relative; display: flex; align-items: center; gap: .9rem; padding: .5rem 0; font-weight: 500; }
-  .program li::before { content: counter(p, bengali); flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--bg); border: 2px solid var(--gold); color: var(--gold); font-weight: 700; font-size: .95rem; position: relative; z-index: 1; }
+  .program li::before { content: counter(p, bengali); flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--bg); border: 2px solid var(--gold); color: var(--gold-ink); font-weight: 700; font-size: .95rem; position: relative; z-index: 1; }
   .menu { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
   .menu li { padding: .3rem .85rem; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-size: .95rem; }
 
   /* Venue */
   .venue { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 1rem; align-items: stretch; }
   .venue-info { display: flex; flex-direction: column; gap: .9rem; justify-content: space-between; }
-  .venue-info h3 { font-size: 1.4rem; margin: 0 0 .2rem; font-family: var(--serif); color: var(--gold); }
+  .venue-info h3 { font-size: 1.4rem; margin: 0 0 .2rem; font-family: var(--serif); color: var(--gold-ink); }
   .venue-info p { margin: 0; color: var(--mut); }
   .venue-info .meta { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; }
   .venue-info .meta li { display: flex; align-items: center; gap: .6rem; }
-  .venue-info .meta .ico { color: var(--gold); }
+  .venue-info .meta .ico { color: var(--gold-ink); }
   .map { border-radius: var(--r); overflow: hidden; border: 1px solid var(--line); min-height: 320px; background: var(--surface); }
   .map iframe { display: block; width: 100%; height: 100%; min-height: 320px; border: 0; }
 
@@ -137,7 +162,7 @@
   .steps { list-style: none; margin: 0; padding: 0; counter-reset: s; display: grid; gap: .9rem; }
   .steps li { counter-increment: s; display: grid; grid-template-columns: 2rem 1fr; gap: .8rem; align-items: start; }
   .steps li::before { content: counter(s, bengali); display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; background: var(--gold); color: #1a1500; font-weight: 700; font-size: .9rem; }
-  .steps b { color: var(--gold); font-weight: 600; }
+  .steps b { color: var(--gold-ink); font-weight: 600; }
   .steps p { margin: 0; }
   .steps small { color: var(--mut); display: block; font-size: .88rem; }
   .bk { padding: clamp(1.1rem, 3.5vw, 1.6rem); border-radius: 22px; color: var(--navy); background: linear-gradient(150deg, #fff1c9, var(--gold)); box-shadow: 0 14px 40px rgba(0, 0, 0, .35); display: flex; flex-direction: column; gap: .9rem; justify-content: space-between; }
@@ -181,7 +206,7 @@
   .tag { display: inline-block; padding: .15rem .7rem; border-radius: 999px; font-weight: 700; font-size: .82rem; border: 1px solid rgba(148, 163, 207, .4); color: var(--mut); }
   .row.paid .tag { background: var(--gold); border-color: var(--gold); color: #1a1500; }
   .empty { grid-column: 1 / -1; padding: 1.25rem .25rem; color: var(--mut); }
-  .row mark { background: var(--gold-soft); color: var(--gold); border-radius: 4px; padding: 0 .1em; }
+  .row mark { background: var(--gold-soft); color: var(--gold-ink); border-radius: 4px; padding: 0 .1em; }
   .row.hit { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(245, 197, 66, .25); animation: pulse 1.6s ease-out 2; }
   @keyframes pulse { 50% { background: rgba(245, 197, 66, .16); } }
 
@@ -190,27 +215,53 @@
   .money div { padding: .7rem .9rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); }
   .money span { display: block; color: var(--mut); font-size: .85rem; }
   .money b { font-family: var(--serif); font-size: clamp(1.2rem, 4.5vw, 1.6rem); line-height: 1.3; }
-  .money .got b { color: var(--gold); }
+  .money .got b { color: var(--gold-ink); }
 
   /* Verify */
   .verify { margin: 0 0 1.25rem; padding: clamp(1rem, 3vw, 1.4rem); border-radius: var(--r); border: 1px solid rgba(245, 197, 66, .3); background: linear-gradient(160deg, var(--gold-soft), var(--surface)); }
   .verify h3 { margin: 0 0 .25rem; }
   .verify > p { margin: 0 0 .8rem; color: var(--mut); font-size: .92rem; }
   .vform { display: flex; gap: .6rem; flex-wrap: wrap; }
-  .vform input { flex: 1 1 200px; min-height: 46px; font: inherit; color: var(--ink); padding: 0 1rem; border-radius: 12px; border: 1px solid var(--line); background: rgba(7, 13, 36, .6); }
+  .vform input { flex: 1 1 200px; min-height: 46px; font: inherit; color: var(--ink); padding: 0 1rem; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); }
   .vform input::placeholder { color: var(--mut); }
   .vres { margin-top: .8rem; }
   .vres:empty { display: none; }
-  .vcard { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .6rem 1rem; padding: .8rem 1rem; border-radius: 14px; border: 1px solid var(--line); background: rgba(7, 13, 36, .55); }
+  .vcard { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .6rem 1rem; padding: .8rem 1rem; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); }
   .vcard.ok { border-color: var(--gold); }
   .vcard b { display: block; line-height: 1.35; }
   .vcard small { color: var(--mut); }
-  .vcard .msg { font-weight: 700; color: var(--gold); }
+  .vcard .msg { font-weight: 700; color: var(--gold-ink); }
   .vcard.no .msg, .vcard.nf .msg { color: var(--mut); }
-  .vlink { background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--gold); text-decoration: underline; cursor: pointer; }
+  .vlink { background: none; border: 0; padding: 0; font: inherit; font-weight: 600; color: var(--gold-ink); text-decoration: underline; cursor: pointer; }
 
   footer { margin-top: clamp(2.5rem, 7vw, 4rem); padding: 1.75rem 0 calc(2rem + env(safe-area-inset-bottom)); text-align: center; color: var(--mut); border-top: 1px solid var(--line); font-size: .92rem; }
   footer b { color: var(--ink); display: block; }
+
+  /* Theme toggle */
+  .icon-btn { display: grid; place-items: center; width: 38px; height: 38px; flex: none; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; }
+  .icon-btn:hover { border-color: var(--gold); }
+  .icon-btn .moon { display: none; }
+  :root[data-theme="light"] .icon-btn .sun { display: none; }
+  :root[data-theme="light"] .icon-btn .moon { display: block; }
+  :root[data-theme="light"] .poster { box-shadow: 0 12px 32px rgba(11, 22, 80, .18); }
+  :root[data-theme="light"] .count, :root[data-theme="light"] .panel, :root[data-theme="light"] .row, :root[data-theme="light"] .stat, :root[data-theme="light"] .wish { box-shadow: 0 1px 2px rgba(11, 22, 80, .05); }
+  :root[data-theme="light"] .btn.ghost { background: var(--surface); }
+
+  /* Actions */
+  .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1rem; }
+  .print-head { display: none; }
+  [hidden] { display: none !important; }
+
+  /* Wishes */
+  .wish-head { display: flex; align-items: center; justify-content: space-between; gap: .75rem 1rem; flex-wrap: wrap; margin-bottom: .6rem; }
+  .wish-head h2 { margin: 0; }
+  .wish-sub { margin: 0 0 1.1rem; color: var(--mut); max-width: 56ch; font-size: .95rem; }
+  .wishes { columns: 2 280px; column-gap: .75rem; }
+  .wish { break-inside: avoid; margin: 0 0 .75rem; padding: 1rem 1.1rem; border-radius: 18px; border: 1px solid var(--line); background: var(--surface); }
+  .wish p { margin: 0 0 .75rem; overflow-wrap: anywhere; white-space: pre-line; }
+  .wish .by { display: flex; align-items: center; gap: .6rem; font-weight: 600; font-size: .92rem; }
+  .wish .av { width: 30px; height: 30px; flex: none; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: #1a1500; font-weight: 700; font-size: .85rem; }
+  .wish-empty { color: var(--mut); padding: .5rem 0; }
 
   @media (max-width: 860px) {
     .hero-grid, .prog-grid, .pay-grid, .venue { grid-template-columns: 1fr; }
@@ -232,7 +283,39 @@
     .bk .fees { grid-template-columns: 1fr; }
     .stat { padding: .6rem .65rem; }
   }
+  @media (max-width: 480px) {
+    .nav nav { gap: .5rem; }
+    .brand { min-width: 0; }
+    .brand span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .92rem; }
+    .nav .btn.sm { padding: 0 .8rem; }
+  }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bar i, .btn { transition: none; } }
+
+  /* প্রিন্ট: শুধু পেমেন্ট তালিকা, সাদা-কালো সহনীয় */
+  @media print {
+    :root, :root[data-theme="light"], :root[data-theme="dark"] {
+      --bg: #fff; --surface: #fff; --surface-2: #eee; --line: #bbb; --ink: #000; --mut: #444; --gold-ink: #000; --panel: #fff; --nav-bg: #fff; --glow-a: transparent; --glow-b: transparent;
+    }
+    @page { margin: 14mm; }
+    html, body { background: #fff !important; color: #000; font-size: 11pt; }
+    body::before { display: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; animation: none !important; }
+    .nav, .hero, #details, #venue, #pay, #wishes, footer, .verify, .tools, .actions, .bar, .updated, .eyebrow { display: none !important; }
+    section.block { padding: 0; }
+    #board h2 { font-size: 18pt; margin: 0 0 .3rem; }
+    .print-head { display: block; margin: 0 0 .8rem; color: #444; font-size: 10pt; }
+    .stats { grid-template-columns: repeat(3, 1fr); margin-bottom: .5rem; }
+    .stat, .money div { background: #fff; border: 1px solid #999; border-radius: 8px; padding: .4rem .6rem; }
+    .stat.hl { background: #fff; color: #000; border: 2px solid #000; }
+    .stat.hl span { color: #000; opacity: 1; }
+    .money { margin: 0 0 .8rem; }
+    .list { grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+    .row { border: 0; border-bottom: 1px solid #ccc; border-radius: 0; background: #fff; padding: .3rem .1rem; break-inside: avoid; }
+    .row.paid { border-color: #ccc; }
+    .row .who small, .row .sl, .row .st em { color: #333; }
+    .tag { border: 1px solid #666; color: #000; }
+    .row.paid .tag { background: #000; border-color: #000; color: #fff; }
+  }
 </style>
 </head>
 <body>
@@ -245,6 +328,10 @@
       <a class="link" href="#venue">লোকেশন</a>
       <a class="link" href="#pay">পেমেন্ট</a>
       <a class="link" href="#board">তালিকা</a>
+      <button class="icon-btn" id="theme-btn" type="button" aria-label="থিম বদলাও (হালকা/গাঢ়)" title="থিম বদলাও">
+        <svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
+      </button>
       <a class="btn primary sm" href="#pay">পেমেন্ট করো</a>
     </nav>
   </div>
@@ -266,6 +353,10 @@
           <div class="cta">
             <a class="btn primary" href="#pay">রেজিস্ট্রেশন ও পেমেন্ট</a>
             <a class="btn ghost" href="#board">পেমেন্ট তালিকা</a>
+            <button class="btn ghost" id="share-btn" type="button">
+              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>
+              <span id="share-label">শেয়ার করো</span>
+            </button>
           </div>
         </div>
         <figure class="poster">
@@ -321,7 +412,7 @@
         <div class="panel venue-info">
           <div>
             <h3>Asian Bistro</h3>
-            <p>কিডনি হাসপাতাল এর পাশে, ফয়েস লেক, চট্টগ্রাম </p>
+            <p>চট্টগ্রাম</p>
           </div>
           <ul class="meta">
             <li><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>১৪ নভেম্বর ২০২৬, শনিবার</li>
@@ -373,6 +464,7 @@
     <div class="wrap">
       <p class="eyebrow">তালিকা</p>
       <h2>কে কে পেমেন্ট করেছে</h2>
+      <p class="print-head" id="print-head"></p>
       <div class="stats">
         <div class="stat hl"><b id="s-paid">০</b><span>পেমেন্ট করেছে</span></div>
         <div class="stat"><b id="s-pending">০</b><span>বাকি</span></div>
@@ -406,7 +498,24 @@
           <button type="button" data-f="pending" aria-pressed="false">বাকি</button>
         </div>
       </div>
+      <div class="actions">
+        <button class="btn ghost sm" id="copy-pending" type="button">বাকিদের নাম কপি করো</button>
+        <button class="btn ghost sm" id="print-btn" type="button">প্রিন্ট করো</button>
+      </div>
       <ul class="list" id="list" aria-live="polite"></ul>
+    </div>
+  </section>
+
+  <section class="block" id="wishes" hidden>
+    <div class="wrap">
+      <p class="eyebrow">শুভেচ্ছা</p>
+      <div class="wish-head">
+        <h2>শুভেচ্ছা দেয়াল</h2>
+        <a class="btn primary sm" id="wish-link" href="#" target="_blank" rel="noopener" hidden>শুভেচ্ছা লেখো</a>
+      </div>
+      <p class="wish-sub">শিক্ষক আর বন্ধুদের জন্য দু-এক লাইনের শুভেচ্ছা। বার্তা দেখে অনুমোদনের পর এখানে দেখানো হয়।</p>
+      <div class="wishes" id="wish-list"></div>
+      <p class="wish-empty" id="wish-empty" hidden>এখনো কোনো শুভেচ্ছা নেই। প্রথম বার্তাটা তুমিই লেখো।</p>
     </div>
   </section>
 </main>
@@ -646,7 +755,114 @@ $("copy-btn").addEventListener("click", async () => {
   catch (e) { btn.textContent = "নম্বরটা চেপে ধরে কপি করো"; }
   setTimeout(() => (btn.textContent = "নম্বর কপি করো"), 2000);
 });
+/* ---------- থিম (হালকা/গাঢ়) ---------- */
+const root = document.documentElement;
+function applyTheme(t) {
+  root.dataset.theme = t;
+  $("theme-meta").setAttribute("content", t === "light" ? "#f4f6fc" : "#070d24");
+}
+applyTheme(root.dataset.theme === "light" ? "light" : "dark");
+$("theme-btn").addEventListener("click", () => {
+  const next = root.dataset.theme === "light" ? "dark" : "light";
+  applyTheme(next);
+  try { localStorage.setItem("theme", next); } catch (e) {}
+});
+
+/* ---------- কপি, শেয়ার, প্রিন্ট ---------- */
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return true; } catch (e) {}
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+    document.body.append(ta); ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return ok;
+  } catch (e) { return false; }
+}
+function flash(node, msg, orig) { node.textContent = msg; setTimeout(() => (node.textContent = orig), 2200); }
+const pageUrl = () => location.href.split("#")[0];
+
+$("copy-pending").addEventListener("click", async () => {
+  const btn = $("copy-pending"), label = "বাকিদের নাম কপি করো";
+  const p = students.filter((s) => !s.by);
+  if (!students.length) return flash(btn, "তালিকা খালি", label);
+  if (!p.length) return flash(btn, "সবাই পেমেন্ট করেছে", label);
+  const lines = [
+    "পেমেন্ট বাকি আছে (" + bn.format(p.length) + " জন):",
+    ...p.map((s, i) => bn.format(i + 1) + ". " + s.name + " (" + s.id + ")"),
+    "",
+    "বিকাশ: " + $("bkash-num").textContent.trim() + " (রেফারেন্সে নিজের ID লিখবে)",
+    "শেষ তারিখ: " + $("deadline").textContent.trim()
+  ];
+  if (/^https?:/.test(location.protocol)) lines.push(pageUrl());
+  flash(btn, (await copyText(lines.join("\n"))) ? "কপি হয়েছে" : "কপি করা যায়নি", label);
+});
+
+$("share-btn").addEventListener("click", async () => {
+  const data = { title: document.title, text: "ফেয়ারওয়েল নাইট, ১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০টা, Asian Bistro। রেজিস্ট্রেশন ও পেমেন্টের তথ্য:", url: pageUrl() };
+  if (navigator.share) {
+    try { await navigator.share(data); return; } catch (e) { if (e && e.name === "AbortError") return; }
+  }
+  flash($("share-label"), (await copyText(pageUrl())) ? "লিংক কপি হয়েছে" : "কপি করা যায়নি", "শেয়ার করো");
+});
+
+function setPrintHead() {
+  $("print-head").textContent = "ইইই ৩১তম ব্যাচ (ইভিনিং) · ফেয়ারওয়েল নাইট · " +
+    new Date().toLocaleDateString("bn-BD", { day: "numeric", month: "long", year: "numeric" }) + ", " +
+    new Date().toLocaleTimeString("bn-BD", { hour: "numeric", minute: "2-digit" }) + " পর্যন্ত";
+}
+addEventListener("beforeprint", setPrintHead);
+$("print-btn").addEventListener("click", () => { setPrintHead(); print(); });
+
+/* ---------- শুভেচ্ছা দেয়াল ---------- */
+const WISH_STATIC = (typeof WISHES !== "undefined") ? WISHES : [];
+const wishApproved = (v) => /^(yes|y|true|1|ok|approved|হ্যাঁ|হ্যা|হাঁ)$/i.test(String(v || "").trim());
+function wishesFromCSV(text) {
+  const rows = parseCSV(text);
+  if (!rows.length) return [];
+  const norm = (s) => String(s || "").trim().toLowerCase();
+  const head = rows[0].map(norm);
+  const iN = head.indexOf(norm(CFG.WISH_COL_NAME || "Name"));
+  const iM = head.indexOf(norm(CFG.WISH_COL_MSG || "Message"));
+  const iA = head.indexOf(norm(CFG.WISH_COL_OK || "Approved"));
+  if (iM < 0 || iA < 0) throw new Error("শুভেচ্ছার কলামের নাম মেলেনি");
+  return rows.slice(1)
+    .filter((r) => (r[iM] || "").trim() && wishApproved(r[iA]))
+    .map((r) => ({ name: (r[iN] || "").trim(), msg: r[iM].trim() }));
+}
+async function loadWishes() {
+  const form = /^https:\/\//.test(CFG.WISH_FORM_URL || "") ? CFG.WISH_FORM_URL : "";
+  let list = WISH_STATIC.slice();
+  if (CFG.WISH_CSV_URL) {
+    try {
+      const res = await fetch(CFG.WISH_CSV_URL, { cache: "no-store" });
+      if (!res.ok) throw new Error(res.status);
+      list = list.concat(wishesFromCSV(await res.text()));
+    } catch (e) { console.warn("শুভেচ্ছা লোড হয়নি:", e); }
+  }
+  if (!form && !list.length) return;   // কিছুই সেট না থাকলে সেকশন লুকানো থাকে
+  $("wishes").hidden = false;
+  if (form) { const a = $("wish-link"); a.href = form; a.hidden = false; }
+  const box = $("wish-list");
+  box.textContent = "";
+  list.slice().reverse().slice(0, 60).forEach((w) => {
+    const card = document.createElement("div"); card.className = "wish";
+    const p = document.createElement("p"); p.textContent = String(w.msg).slice(0, 300);
+    const by = document.createElement("div"); by.className = "by";
+    const name = String(w.name || "একজন বন্ধু").slice(0, 60);
+    const av = document.createElement("span"); av.className = "av"; av.textContent = Array.from(name)[0];
+    const nm = document.createElement("span"); nm.textContent = name;
+    by.append(av, nm);
+    card.append(p, by);
+    box.append(card);
+  });
+  $("wish-empty").hidden = list.length > 0;
+}
+
 load();
+loadWishes();
 </script>
 </body>
 </html>
