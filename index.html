@@ -253,7 +253,6 @@
 
   /* Actions */
   .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin: 0 0 1rem; }
-  .print-head { display: none; }
   [hidden] { display: none !important; }
 
   /* Wishes */
@@ -295,30 +294,54 @@
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bar i, .btn { transition: none; } }
 
-  /* প্রিন্ট: শুধু পেমেন্ট তালিকা, সাদা-কালো সহনীয় */
+  /* প্রিন্ট শিট (শুধু ছাপার সময় দেখায়) */
+  .print-sheet { display: none; }
+
   @media print {
-    :root, :root[data-theme="light"], :root[data-theme="dark"] {
-      --bg: #fff; --surface: #fff; --surface-2: #eee; --line: #bbb; --ink: #000; --mut: #444; --gold-ink: #000; --panel: #fff; --nav-bg: #fff; --glow-a: transparent; --glow-b: transparent;
+    @page {
+      size: A4 portrait;
+      margin: 14mm 12mm 16mm;
+      @bottom-center { content: "পৃষ্ঠা " counter(page) " / " counter(pages); font-size: 9pt; color: #555; }
     }
-    @page { margin: 14mm; }
-    html, body { background: #fff !important; color: #000; font-size: 11pt; }
-    body::before { display: none; }
+    :root, :root[data-theme="light"], :root[data-theme="dark"] {
+      color-scheme: light !important;
+      --bg: #fff; --surface: #fff; --surface-2: #eee; --line: #bbb; --ink: #000; --mut: #444; --panel: #fff; --nav-bg: #fff;
+    }
+    html, body { background: #fff !important; color: #000 !important; font-size: 10.5pt; line-height: 1.35; }
+    body::before { display: none !important; }
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-shadow: none !important; animation: none !important; }
-    .nav, .hero, #details, #venue, #pay, #wishes, footer, .verify, .tools, .actions, .bar, .updated, .eyebrow { display: none !important; }
-    section.block { padding: 0; }
-    #board h2 { font-size: 18pt; margin: 0 0 .3rem; }
-    .print-head { display: block; margin: 0 0 .8rem; color: #444; font-size: 10pt; }
-    .stats { grid-template-columns: repeat(3, 1fr); margin-bottom: .5rem; }
-    .stat, .money div { background: #fff; border: 1px solid #999; border-radius: 8px; padding: .4rem .6rem; }
-    .stat.hl { background: #fff; color: #000; border: 2px solid #000; }
-    .stat.hl span { color: #000; opacity: 1; }
-    .money { margin: 0 0 .8rem; }
-    .list { grid-template-columns: 1fr 1fr; gap: 0 1rem; }
-    .row { border: 0; border-bottom: 1px solid #ccc; border-radius: 0; background: #fff; padding: .3rem .1rem; break-inside: avoid; }
-    .row.paid { border-color: #ccc; }
-    .row .who small, .row .sl, .row .st em { color: #333; }
-    .tag { border: 1px solid #666; color: #000; }
-    .row.paid .tag { background: #000; border-color: #000; color: #fff; }
+    .nav, main > section, footer { display: none !important; }
+    .print-sheet { display: block; color: #000; font-family: var(--sans); }
+
+    .ps-head { text-align: center; margin: 0 0 8pt; }
+    .ps-org { font-size: 9.5pt; color: #444; letter-spacing: .02em; }
+    .ps-title { margin: 2pt 0 1pt; font-family: var(--serif); font-size: 19pt; line-height: 1.25; font-weight: 800; }
+    .ps-sub { font-size: 10pt; color: #333; }
+    .ps-meta { display: flex; justify-content: space-between; gap: 12pt; margin: 6pt 0 8pt; padding: 4pt 0; border-top: 1.2pt solid #000; border-bottom: .5pt solid #888; font-size: 9.5pt; }
+
+    .ps-sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 5pt; margin: 0 0 9pt; }
+    .ps-sum div { border: .75pt solid #666; border-radius: 4pt; padding: 3pt 6pt; }
+    .ps-sum span { display: block; font-size: 8.5pt; color: #444; }
+    .ps-sum b { display: block; font-size: 11.5pt; line-height: 1.3; }
+    .ps-sum small { display: block; font-size: 8.5pt; color: #333; }
+    .ps-sum .key { background: #e6e6e6; border-width: 1.5pt; border-color: #000; }
+
+    .ps-table { width: 100%; border-collapse: collapse; }
+    .ps-table thead { display: table-header-group; }
+    .ps-table tr { break-inside: avoid; page-break-inside: avoid; }
+    .ps-table th { background: #d9d9d9; border: .75pt solid #555; padding: 4pt 6pt; font-size: 9.5pt; font-weight: 700; text-align: left; }
+    .ps-table td { border: .5pt solid #888; padding: 5.5pt 6pt; vertical-align: middle; }
+    .ps-table tbody tr:nth-child(even) td { background: #f3f3f3; }
+    .ps-table .c-sl { width: 8%; text-align: center; font-variant-numeric: tabular-nums; }
+    .ps-table .c-id { width: 22%; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .ps-table .c-st { width: 13%; text-align: center; }
+    .ps-table .c-me { width: 11%; text-align: center; }
+    .ps-table .c-sig { width: 24%; }
+    .ps-table .nm { font-weight: 600; overflow-wrap: anywhere; }
+    .ps-table .st-paid { font-weight: 800; }
+    .ps-table .st-pend { color: #555; font-style: italic; }
+    .ps-empty { padding: 14pt 0; text-align: center; color: #444; }
+    .ps-foot { margin-top: 7pt; font-size: 9pt; color: #444; display: flex; justify-content: space-between; gap: 10pt; }
   }
 </style>
 </head>
@@ -468,7 +491,6 @@
     <div class="wrap">
       <p class="eyebrow">তালিকা</p>
       <h2>কে কে পেমেন্ট করেছে</h2>
-      <p class="print-head" id="print-head"></p>
       <div class="stats">
         <div class="stat hl"><b id="s-paid">০</b><span>পেমেন্ট করেছে</span></div>
         <div class="stat"><b id="s-pending">০</b><span>বাকি</span></div>
@@ -529,6 +551,8 @@
       <p class="wish-empty" id="wish-empty" hidden>এখনো কোনো শুভেচ্ছা নেই। প্রথম বার্তাটা তুমিই লেখো।</p>
     </div>
   </section>
+
+  <div class="print-sheet" id="print-sheet" aria-hidden="true"></div>
 </main>
 
 <footer>
@@ -641,6 +665,16 @@ function highlight(text, term) {
   return frag;
 }
 
+// তালিকায় দেখানো ও প্রিন্টে যাওয়ার একই শর্ত
+function passes(s, term, termId) {
+  const isPaid = !!s.by;
+  if (filter === "paid" && !isPaid) return false;
+  if (filter === "pending" && isPaid) return false;
+  if (method !== "all" && methodKey(s.by) !== method) return false;
+  if (term && !(s.name.toLowerCase().includes(term) || s.id.toLowerCase().replace(/\s+/g, "").includes(termId))) return false;
+  return true;
+}
+
 function render(opts = {}) {
   const total = students.length;
   const paid = students.filter((s) => s.by).length;
@@ -675,10 +709,7 @@ function render(opts = {}) {
   let shown = 0;
   students.forEach((s, i) => {
     const isPaid = !!s.by;
-    if (filter === "paid" && !isPaid) return;
-    if (filter === "pending" && isPaid) return;
-    if (method !== "all" && methodKey(s.by) !== method) return;
-    if (term && !(s.name.toLowerCase().includes(term) || s.id.toLowerCase().replace(/\s+/g, "").includes(termId))) return;
+    if (!passes(s, term, termId)) return;
     shown++;
     const li = document.createElement("li");
     li.className = "row" + (isPaid ? " paid" : "") + (opts.focus === i ? " hit" : "");
@@ -855,13 +886,94 @@ $("share-btn").addEventListener("click", async () => {
   flash($("share-label"), (await copyText(pageUrl())) ? "লিংক কপি হয়েছে" : "কপি করা যায়নি", "শেয়ার করো");
 });
 
-function setPrintHead() {
-  $("print-head").textContent = "ইইই ৩১তম ব্যাচ (ইভিনিং) · ফেয়ারওয়েল নাইট · " +
-    new Date().toLocaleDateString("bn-BD", { day: "numeric", month: "long", year: "numeric" }) + ", " +
-    new Date().toLocaleTimeString("bn-BD", { hour: "numeric", minute: "2-digit" }) + " পর্যন্ত";
+/* ---------- প্রিন্ট শিট ---------- */
+function buildPrintSheet() {
+  const root = $("print-sheet");
+  root.textContent = "";
+  const mk = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+
+  const term = $("q").value.trim().toLowerCase();
+  const termId = term.replace(/\s+/g, "");
+  const total = students.length;
+  const paid = students.filter((s) => s.by).length;
+  const cnt = { bkash: 0, cash: 0, other: 0 };
+  students.forEach((s) => { const k = methodKey(s.by); if (k) cnt[k]++; });
+  const rows = [];
+  students.forEach((s, i) => { if (passes(s, term, termId)) rows.push([i, s]); });
+
+  // শিরোনাম
+  const head = mk("div", "ps-head");
+  head.append(
+    mk("div", "ps-org", "পোর্ট সিটি ইন্টারন্যাশনাল ইউনিভার্সিটি · ইইই ৩১তম ব্যাচ (ইভিনিং)"),
+    mk("div", "ps-title", "ফেয়ারওয়েল নাইট: পেমেন্ট তালিকা"),
+    mk("div", "ps-sub", "১৪ নভেম্বর ২০২৬ · Asian Bistro")
+  );
+
+  // কোন ফিল্টারে ছাপা হচ্ছে
+  const parts = [];
+  if (filter === "paid") parts.push("শুধু যারা দিয়েছে");
+  if (filter === "pending") parts.push("শুধু বাকিরা");
+  if (method !== "all") parts.push(METHOD_NAME[method]);
+  if (term) parts.push("খোঁজা: “" + $("q").value.trim() + "”");
+  const now = new Date();
+  const meta = mk("div", "ps-meta");
+  meta.append(
+    mk("span", "", "তালিকা: " + (parts.length ? parts.join(" · ") : "সবাই")),
+    mk("span", "", "ছাপা হয়েছে: " + now.toLocaleDateString("bn-BD", { day: "numeric", month: "long", year: "numeric" }) + ", " +
+      now.toLocaleTimeString("bn-BD", { hour: "numeric", minute: "2-digit" }))
+  );
+
+  // সারসংক্ষেপ (সব শিক্ষার্থী ধরে, ফিল্টারে বদলায় না)
+  const sum = mk("div", "ps-sum");
+  const box = (label, value, small, key) => {
+    const d = mk("div", key ? "key" : "");
+    d.append(mk("span", "", label), mk("b", "", value));
+    if (small) d.append(mk("small", "", small));
+    sum.append(d);
+  };
+  box("মোট", bn.format(total) + " জন");
+  box("পেমেন্ট করেছে", bn.format(paid) + " জন", money(paid * FEE), true);
+  box("বাকি", bn.format(total - paid) + " জন", money((total - paid) * FEE));
+  box("বিকাশ", bn.format(cnt.bkash) + " জন", money(cnt.bkash * FEE));
+  box("ক্যাশ", bn.format(cnt.cash) + " জন", money(cnt.cash * FEE));
+  if (cnt.other) box("অন্য", bn.format(cnt.other) + " জন", money(cnt.other * FEE));
+
+  // টেবিল
+  const table = mk("table", "ps-table");
+  const thead = mk("thead");
+  const hr = mk("tr");
+  [["c-sl", "ক্র."], ["c-nm", "নাম"], ["c-id", "ID"], ["c-st", "অবস্থা"], ["c-me", "মাধ্যম"], ["c-sig", "স্বাক্ষর / মন্তব্য"]].forEach(([c, t]) => {
+    const th = mk("th", c, t); th.scope = "col"; hr.append(th);
+  });
+  thead.append(hr);
+  const tbody = mk("tbody");
+  rows.forEach(([i, s]) => {
+    const tr = mk("tr");
+    const isPaid = !!s.by;
+    tr.append(
+      mk("td", "c-sl", bn.format(i + 1)),
+      mk("td", "c-nm nm", s.name),
+      mk("td", "c-id", s.id),
+      mk("td", "c-st " + (isPaid ? "st-paid" : "st-pend"), isPaid ? "Paid" : "Pending"),
+      mk("td", "c-me", isPaid ? (methodLabel(s.by) || "—") : "—"),
+      mk("td", "c-sig", "")
+    );
+    tbody.append(tr);
+  });
+  table.append(thead, tbody);
+
+  root.append(head, meta, sum);
+  if (rows.length) root.append(table);
+  else root.append(mk("p", "ps-empty", "এই শর্তে কোনো নাম নেই।"));
+  const foot = mk("div", "ps-foot");
+  root.append(foot);
+  foot.append(
+    mk("span", "", "এই তালিকায়: " + bn.format(rows.length) + " জন"),
+    mk("span", "", "টাকার হিসাব প্রতি শিক্ষার্থী " + money(FEE) + " ধরে (গেস্ট ফি বাদে)")
+  );
 }
-addEventListener("beforeprint", setPrintHead);
-$("print-btn").addEventListener("click", () => { setPrintHead(); print(); });
+addEventListener("beforeprint", buildPrintSheet);
+$("print-btn").addEventListener("click", () => { buildPrintSheet(); print(); });
 
 /* ---------- শুভেচ্ছা দেয়াল ---------- */
 const WISH_STATIC = (typeof WISHES !== "undefined") ? WISHES : [];
