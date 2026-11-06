@@ -14,21 +14,21 @@
 <!-- শেয়ার প্রিভিউ (WhatsApp, Messenger, Facebook)।
      নিচের YOUR-SITE.com লাইনগুলো আপনার সাইটের আসল ঠিকানা দিয়ে বদলান।
      og:image এ অবশ্যই পুরো ঠিকানা (https://...) লাগে। -->
-<link rel="canonical" href="https://farewell-eee31.vercel.app/">
+<link rel="canonical" href="https://YOUR-SITE.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
 <meta property="og:site_name" content="ইইই ৩১তম ব্যাচ (ইভিনিং)">
 <meta property="og:title" content="ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)">
 <meta property="og:description" content="১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০টা, Asian Bistro। রেজিস্ট্রেশন, পেমেন্ট ও লোকেশন এক জায়গায়।">
-<meta property="og:url" content="https://farewell-eee31.vercel.app/">
-<meta property="og:image" content="https://farewell-eee31.vercel.app/share.jpg">
+<meta property="og:url" content="https://YOUR-SITE.com/">
+<meta property="og:image" content="https://YOUR-SITE.com/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Farewell Night, EEE 31st Batch (Evening), Port City International University">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)">
 <meta name="twitter:description" content="১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০টা, Asian Bistro।">
-<meta name="twitter:image" content="https://farewell-eee31.vercel.app/share.jpg">
+<meta name="twitter:image" content="https://YOUR-SITE.com/share.jpg">
 <link rel="preload" as="image" href="banner.webp" type="image/webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -193,6 +193,10 @@
   .seg { display: grid; grid-template-columns: repeat(3, 1fr); padding: 3px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); }
   .seg button { font: inherit; font-weight: 600; font-size: .95rem; min-height: 40px; padding: 0 1rem; border: 0; border-radius: 9px; background: transparent; color: var(--mut); cursor: pointer; }
   .seg button[aria-pressed="true"] { background: var(--gold); color: #1a1500; }
+  .seg.method { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 1fr; }
+  .seg button span { font-weight: 500; opacity: .8; margin-left: .1em; }
+  .seg.method button { padding: 0 .35rem; white-space: nowrap; font-size: .9rem; }
+  .filter-note { margin: -.2rem 0 .9rem; padding: .5rem .8rem; border-radius: 12px; border: 1px solid var(--line); background: var(--gold-soft); font-weight: 600; font-size: .95rem; }
 
   .list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem .75rem; }
   .row { display: grid; grid-template-columns: 1.8rem 1fr auto; gap: .6rem; align-items: center; padding: .65rem .8rem; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); }
@@ -492,12 +496,19 @@
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
           <input type="search" id="q" placeholder="নাম বা ID দিয়ে খোঁজো" aria-label="নাম বা ID দিয়ে খোঁজো" autocomplete="off">
         </label>
-        <div class="seg" role="group" aria-label="ফিল্টার">
+        <div class="seg" id="seg-status" role="group" aria-label="পেমেন্টের অবস্থা">
           <button type="button" data-f="all" aria-pressed="true">সবাই</button>
           <button type="button" data-f="paid" aria-pressed="false">দিয়েছে</button>
           <button type="button" data-f="pending" aria-pressed="false">বাকি</button>
         </div>
+        <div class="seg method" id="seg-method" role="group" aria-label="পেমেন্টের মাধ্যম">
+          <button type="button" data-m="all" aria-pressed="true">সব মাধ্যম</button>
+          <button type="button" data-m="bkash" aria-pressed="false">বিকাশ <span id="n-bkash"></span></button>
+          <button type="button" data-m="cash" aria-pressed="false">ক্যাশ <span id="n-cash"></span></button>
+          <button type="button" data-m="other" aria-pressed="false" id="btn-other" hidden>অন্য <span id="n-other"></span></button>
+        </div>
       </div>
+      <p class="filter-note" id="filter-note" hidden></p>
       <div class="actions">
         <button class="btn ghost sm" id="copy-pending" type="button">বাকিদের নাম কপি করো</button>
         <button class="btn ghost sm" id="print-btn" type="button">প্রিন্ট করো</button>
@@ -603,6 +614,20 @@ function methodLabel(by) {
   if (k.includes("cash") || k.includes("ক্যাশ")) return "ক্যাশ";
   return by;
 }
+// মাধ্যমের ধরন: bkash / cash / other (অন্য কিছু লেখা থাকলে) / "" (পেমেন্ট হয়নি)
+function methodKey(by) {
+  const k = String(by || "").toLowerCase().replace(/\s+/g, "");
+  if (!k) return "";
+  if (k.includes("bkash") || k.includes("বিকাশ")) return "bkash";
+  if (k.includes("cash") || k.includes("ক্যাশ")) return "cash";
+  return "other";
+}
+const METHOD_NAME = { bkash: "বিকাশ", cash: "ক্যাশ", other: "অন্য মাধ্যম" };
+let method = "all";
+function syncSegs() {
+  document.querySelectorAll("#seg-status button").forEach((x) => x.setAttribute("aria-pressed", x.dataset.f === filter ? "true" : "false"));
+  document.querySelectorAll("#seg-method button").forEach((x) => x.setAttribute("aria-pressed", x.dataset.m === method ? "true" : "false"));
+}
 
 /* ---------- Render ---------- */
 // নামের মধ্যে খোঁজা অংশটা হাইলাইট করে (innerHTML ছাড়া, নিরাপদভাবে)
@@ -628,6 +653,21 @@ function render(opts = {}) {
   $("bar").setAttribute("aria-valuenow", pct);
   requestAnimationFrame(() => { $("bar-fill").style.width = pct + "%"; });
 
+  // মাধ্যম অনুযায়ী গণনা (সার্চ বা ফিল্টারে বদলায় না)
+  const cnt = { bkash: 0, cash: 0, other: 0 };
+  students.forEach((s) => { const k = methodKey(s.by); if (k) cnt[k]++; });
+  $("n-bkash").textContent = "(" + bn.format(cnt.bkash) + ")";
+  $("n-cash").textContent = "(" + bn.format(cnt.cash) + ")";
+  $("n-other").textContent = "(" + bn.format(cnt.other) + ")";
+  $("btn-other").hidden = cnt.other === 0 && method !== "other";
+  const note = $("filter-note");
+  if (method !== "all") {
+    note.hidden = false;
+    note.textContent = METHOD_NAME[method] + "-এ দিয়েছে: " + bn.format(cnt[method]) + " জন, মোট " + money(cnt[method] * FEE);
+  } else {
+    note.hidden = true;
+  }
+
   const term = $("q").value.trim().toLowerCase();
   const termId = term.replace(/\s+/g, "");
   const list = $("list");
@@ -637,6 +677,7 @@ function render(opts = {}) {
     const isPaid = !!s.by;
     if (filter === "paid" && !isPaid) return;
     if (filter === "pending" && isPaid) return;
+    if (method !== "all" && methodKey(s.by) !== method) return;
     if (term && !(s.name.toLowerCase().includes(term) || s.id.toLowerCase().replace(/\s+/g, "").includes(termId))) return;
     shown++;
     const li = document.createElement("li");
@@ -733,8 +774,7 @@ function verifyId(e) {
   const go = el("button", "vlink", "তালিকায় দেখো");
   go.type = "button";
   go.addEventListener("click", () => {
-    filter = "all";
-    document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", x.dataset.f === "all" ? "true" : "false"));
+    filter = "all"; method = "all"; syncSegs();
     $("q").value = "";
     render({ focus: idx });
   });
@@ -744,9 +784,16 @@ function verifyId(e) {
   showVerify(isPaid ? "ok" : "no", nodes);
 }
 $("vform").addEventListener("submit", verifyId);
-document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
+document.querySelectorAll("#seg-status button").forEach((b) => b.addEventListener("click", () => {
   filter = b.dataset.f;
-  document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+  if (filter === "pending") method = "all";   // বাকিদের কোনো মাধ্যম নেই
+  syncSegs();
+  render();
+}));
+document.querySelectorAll("#seg-method button").forEach((b) => b.addEventListener("click", () => {
+  method = b.dataset.m;
+  if (method !== "all" && filter === "pending") filter = "all";   // খালি তালিকা এড়াতে
+  syncSegs();
   render();
 }));
 $("copy-btn").addEventListener("click", async () => {
