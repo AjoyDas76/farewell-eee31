@@ -14,21 +14,21 @@
 <!-- শেয়ার প্রিভিউ (WhatsApp, Messenger, Facebook)।
      নিচের YOUR-SITE.com লাইনগুলো আপনার সাইটের আসল ঠিকানা দিয়ে বদলান।
      og:image এ অবশ্যই পুরো ঠিকানা (https://...) লাগে। -->
-<link rel="canonical" href="https://farewell-eee31.vercel.app/">
+<link rel="canonical" href="https://YOUR-SITE.com/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
 <meta property="og:site_name" content="ইইই ৩১তম ব্যাচ (ইভিনিং)">
 <meta property="og:title" content="ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)">
 <meta property="og:description" content="১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০টা, Asian Bistro। রেজিস্ট্রেশন, পেমেন্ট ও লোকেশন এক জায়গায়।">
-<meta property="og:url" content="https://farewell-eee31.vercel.app/">
-<meta property="og:image" content="https://farewell-eee31.vercel.app/share.jpg">
+<meta property="og:url" content="https://YOUR-SITE.com/">
+<meta property="og:image" content="https://YOUR-SITE.com/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Farewell Night, EEE 31st Batch (Evening), Port City International University">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ফেয়ারওয়েল নাইট | ইইই ৩১তম ব্যাচ (ইভিনিং)">
 <meta name="twitter:description" content="১৪ নভেম্বর ২০২৬, সন্ধ্যা ৬:০০টা, Asian Bistro।">
-<meta name="twitter:image" content="https://farewell-eee31.vercel.app/share.jpg">
+<meta name="twitter:image" content="https://YOUR-SITE.com/share.jpg">
 <link rel="preload" as="image" href="banner.webp" type="image/webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -294,6 +294,42 @@
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .bar i, .btn { transition: none; } }
 
+  /* হিসাব: জমা, খরচ, অবশিষ্ট */
+  .acct-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; margin: 1rem 0 0; }
+  .acct-stats > div { padding: .75rem .9rem; border-radius: 16px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
+  .acct-stats span { display: block; color: var(--mut); font-size: .85rem; }
+  .acct-stats b { display: block; font-family: var(--serif); font-size: clamp(1.05rem, 4.2vw, 1.55rem); line-height: 1.3; overflow-wrap: anywhere; }
+  .acct-stats .in b { color: var(--gold-ink); }
+  .acct-stats .bal { background: var(--gold); border-color: var(--gold); color: #1a1500; }
+  .acct-stats .bal span { color: #1a1500; opacity: .75; }
+  .acct-stats .bal.neg { background: #ffe1e1; border-color: #e98a8a; color: #6b0f0f; }
+  .acct-stats .bal.neg span { color: #6b0f0f; }
+  .acct-stats[hidden], .acct-bar[hidden], .acct-note[hidden] { display: none; }
+  .acct-note { color: var(--mut); font-size: .88rem; margin: .7rem 0 0; }
+  .acct-note b { color: var(--ink); font-weight: 600; }
+  .acct-bar { margin: .8rem 0 0; }
+  .acct-bar small { display: block; color: var(--mut); font-size: .82rem; margin: 0 0 .3rem; }
+  .exlist { list-style: none; margin: 1.1rem 0 0; padding: 0; display: grid; gap: .5rem; }
+  .exlist li { display: grid; grid-template-columns: 1fr auto; column-gap: .9rem; align-items: center; padding: .7rem .9rem; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); }
+  .exlist .dt { grid-column: 1; color: var(--mut); font-size: .8rem; }
+  .exlist .fr { grid-column: 1; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+  .exlist .nt { grid-column: 1; color: var(--mut); font-size: .82rem; }
+  .exlist .am { grid-column: 2; grid-row: 1 / span 3; font-family: var(--serif); font-weight: 700; font-size: 1.1rem; white-space: nowrap; text-align: right; }
+  .exlist li.total { background: var(--gold-soft); border-color: rgba(245, 197, 66, .45); }
+  .exlist li.total .fr { grid-row: 1; }
+  .exlist li.total .am { grid-row: 1; color: var(--gold-ink); }
+  .exlist li.empty { display: block; text-align: center; color: var(--mut); }
+  @media (min-width: 700px) {
+    .exlist li { grid-template-columns: 9.5rem 1fr auto; }
+    .exlist .dt { grid-column: 1; grid-row: 1 / span 2; align-self: center; font-size: .88rem; }
+    .exlist .fr { grid-column: 2; grid-row: 1; }
+    .exlist .nt { grid-column: 2; grid-row: 2; }
+    .exlist .am { grid-column: 3; grid-row: 1 / span 2; }
+    .exlist li.total .fr { grid-column: 1 / span 2; }
+    .exlist li.total .am { grid-column: 3; }
+  }
+  @media (max-width: 380px) { .acct-stats { gap: .4rem; } .acct-stats > div { padding: .6rem .55rem; } .acct-stats span { font-size: .78rem; } }
+
   /* প্রিন্ট শিট (শুধু ছাপার সময় দেখায়) */
   .print-sheet { display: none; }
 
@@ -328,6 +364,16 @@
     .ps-sum .key span { color: #3b2f00; }
     .ps-sum .key b { color: #1a1500; }
     .ps-sum .key small { color: #1a1500; }
+    .ps-acct { break-before: page; page-break-before: always; }
+    .ps-h2 { margin: 0 0 7pt; padding: 6pt 10pt; border-radius: 6pt; background: #0b1650; border-bottom: 2.5pt solid #f5c542; color: #f5c542; font-family: var(--serif); font-size: 14pt; font-weight: 800; }
+    .ps-sum .neg { background: #8a1c1c; }
+    .ps-sum .neg span, .ps-sum .neg small { color: #ffd6d6; }
+    .ps-table .c-dt { width: 21%; white-space: nowrap; }
+    .ps-table .c-fr { width: auto; }
+    .ps-table .c-am { width: 20%; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .ps-table th.c-am { text-align: right; }
+    .ps-table .ps-note { display: block; color: #56608a; font-size: 8.5pt; font-weight: 400; }
+    .ps-table tr.ps-total td { background: #fff3c4 !important; font-weight: 800; border-top: 1.5pt solid #0b1650; }
 
     .ps-table { width: 100%; border-collapse: collapse; }
     .ps-table thead { display: table-header-group; }
@@ -358,6 +404,7 @@
       <a class="link" href="#venue">লোকেশন</a>
       <a class="link" href="#pay">পেমেন্ট</a>
       <a class="link" href="#board">তালিকা</a>
+      <a class="link" href="#accounts" id="nav-accounts" hidden>হিসাব</a>
       <button class="icon-btn" id="theme-btn" type="button" aria-label="থিম বদলাও (হালকা/গাঢ়)" title="থিম বদলাও">
         <svg class="ico sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
         <svg class="ico moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>
@@ -542,6 +589,25 @@
     </div>
   </section>
 
+  <section class="block" id="accounts" hidden>
+    <div class="wrap">
+      <p class="eyebrow">হিসাব</p>
+      <h2>জমা ও খরচের হিসাব</h2>
+      <div class="acct-stats">
+        <div class="in"><span>মোট জমা</span><b id="a-in">০ ৳</b></div>
+        <div class="out"><span>মোট খরচ</span><b id="a-out">০ ৳</b></div>
+        <div class="bal" id="a-balbox"><span id="a-ballabel">অবশিষ্ট</span><b id="a-bal">০ ৳</b></div>
+      </div>
+      <div class="acct-bar" id="a-barwrap">
+        <small id="a-pct"></small>
+        <div class="bar" role="progressbar" aria-label="জমার কত অংশ খরচ হয়েছে" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="a-bar"><i id="a-fill"></i></div>
+      </div>
+      <p class="acct-note" id="a-note"></p>
+      <ul class="exlist" id="exlist" aria-live="polite"></ul>
+      <p class="updated" id="a-updated"></p>
+    </div>
+  </section>
+
   <section class="block" id="wishes" hidden>
     <div class="wrap">
       <p class="eyebrow">শুভেচ্ছা</p>
@@ -578,6 +644,8 @@ const bn2 = new Intl.NumberFormat("bn-BD", { minimumIntegerDigits: 2 });
 const $ = (id) => document.getElementById(id);
 const FEE = Number(CFG.FEE) || 1000;
 let students = [];
+let expenses = [];
+let expensesReady = false;
 let filter = "all";
 
 // ID মেলানোর জন্য: বাংলা সংখ্যাকে ইংরেজি করে, স্পেস ও চিহ্ন বাদ দিয়ে ছোট হাতের অক্ষরে আনে
@@ -747,6 +815,147 @@ function render(opts = {}) {
   }
 }
 
+/* ---------- খরচের হিসাব ---------- */
+const EXP_STATIC = (typeof EXPENSES !== "undefined") ? EXPENSES : [];
+const EXTRA_IN = Number(CFG.EXTRA_INCOME) || 0;
+const toAscii = (v) => String(v == null ? "" : v).replace(/[০-৯]/g, (d) => BN_DIGITS.indexOf(d));
+function parseAmount(v) {
+  const t = toAscii(v).replace(/,/g, "").replace(/[৳\s]/g, "");
+  const m = t.match(/-?\d+(?:\.\d+)?/);
+  return m ? Number(m[0]) : NaN;
+}
+function parseDateLoose(v) {
+  const t = toAscii(v).trim();
+  if (!t) return null;
+  let m, y, mo, d;
+  if ((m = t.match(/^(\d{4})[\/.\-](\d{1,2})[\/.\-](\d{1,2})$/))) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+  else if ((m = t.match(/^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})$/))) {
+    let a = +m[1], b = +m[2]; y = +m[3]; if (y < 100) y += 2000;
+    if (b > 12 && a <= 12) { mo = a; d = b; } else { d = a; mo = b; }   // সাধারণত দিন/মাস/বছর
+  }
+  else if ((m = t.match(/^(\d{1,2})[\/.\-](\d{1,2})$/))) { d = +m[1]; mo = +m[2]; y = new Date().getFullYear(); }
+  else { const p = Date.parse(t); if (isNaN(p)) return null; const x = new Date(p); return new Date(x.getFullYear() || 2026, x.getMonth(), x.getDate()); }
+  if (mo < 1 || mo > 12 || d < 1 || d > 31) return null;
+  return new Date(y, mo - 1, d);
+}
+function fmtDate(dt, raw) {
+  return dt ? dt.toLocaleDateString("bn-BD", { day: "numeric", month: "long", year: "numeric" }) : (raw || "");
+}
+function normExp(list) {
+  const out = [];
+  list.forEach((x, i) => {
+    const amt = parseAmount(x.amount);
+    const why = String(x.what || "").trim();
+    if (!(amt > 0) || /^(মোট|total|sum|grand)/i.test(why)) return;
+    const raw = String(x.date || "").trim();
+    out.push({ raw, dt: parseDateLoose(raw), what: why || "খরচ", amt, note: String(x.note || "").trim(), i });
+  });
+  // নতুন তারিখ আগে; একই তারিখে শিটে পরে লেখা আগে
+  out.sort((a, b) => ((b.dt ? b.dt.getTime() : -1) - (a.dt ? a.dt.getTime() : -1)) || (b.i - a.i));
+  return out;
+}
+function expFromCSV(text) {
+  const rows = parseCSV(text).filter((r) => r.some((c) => String(c).trim() !== ""));
+  if (!rows.length) return [];
+  const norm = (s) => String(s || "").trim().toLowerCase();
+  const find = (head, names, fallback) => {
+    for (const n of names.filter(Boolean).map(norm)) { const k = head.findIndex((h) => h === n); if (k >= 0) return k; }
+    for (const n of names.filter(Boolean).map(norm)) { const k = head.findIndex((h) => h && h.includes(n)); if (k >= 0) return k; }
+    return fallback;
+  };
+  const head = rows[0].map(norm);
+  const iDate = find(head, [CFG.EXP_COL_DATE, "তারিখ", "date"], 0);
+  const iWhat = find(head, [CFG.EXP_COL_FOR, "কী বাবদ", "কি বাবদ", "বাবদ", "বিবরণ", "খাত", "purpose", "description", "item", "details"], 1);
+  const iAmt = find(head, [CFG.EXP_COL_AMT, "টাকা", "পরিমাণ", "amount", "taka", "cost"], 2);
+  const iNote = find(head, [CFG.EXP_COL_NOTE, "মন্তব্য", "note", "notes", "remarks", "comment"], 3);
+  // প্রথম সারিতে আসল সংখ্যা থাকলে সেটা হেডার নয়
+  const first = rows[0];
+  const hasHeader = !(first[iAmt] && !isNaN(parseAmount(first[iAmt])) && /\d/.test(toAscii(first[iAmt])) && !/[a-zA-Zঅ-হ]/.test(first[iAmt]));
+  return normExp(rows.slice(hasHeader ? 1 : 0).map((r) => ({ date: r[iDate], what: r[iWhat], amount: r[iAmt], note: iNote === iAmt ? "" : r[iNote] })));
+}
+async function loadExpenses() {
+  let live = false;
+  if (CFG.EXPENSE_CSV_URL) {
+    try {
+      const res = await fetch(CFG.EXPENSE_CSV_URL, { cache: "no-store" });
+      if (!res.ok) throw new Error(res.status);
+      expenses = expFromCSV(await res.text());
+      live = true;
+    } catch (e) { console.warn("খরচের শিট লোড হয়নি:", e); }
+  }
+  if (!live) expenses = normExp(EXP_STATIC.map((x) => ({ date: x.date, what: x.what, amount: x.amount, note: x.note })));
+  expensesReady = live || EXP_STATIC.length > 0 || !!CFG.EXPENSE_CSV_URL;
+  return live;
+}
+function accountFigures() {
+  const total = students.length;
+  const paid = students.filter((s) => s.by).length;
+  const income = paid * FEE + EXTRA_IN;
+  const spent = expenses.reduce((a, e) => a + e.amt, 0);
+  return { total, paid, income, spent, bal: income - spent, pendingAmt: (total - paid) * FEE };
+}
+function renderAccounts(live) {
+  const sec = $("accounts");
+  sec.hidden = !expensesReady;
+  $("nav-accounts").hidden = !expensesReady;
+  if (!expensesReady) return;
+  // শিট কনফিগার করা আছে কিন্তু লোড হয়নি, আবার কোনো সংরক্ষিত তালিকাও নেই: ভুল সংখ্যা না দেখিয়ে জানিয়ে দিই
+  const broken = !!CFG.EXPENSE_CSV_URL && !live && !EXP_STATIC.length;
+  document.querySelectorAll("#accounts .acct-stats, #accounts .acct-bar, #accounts .acct-note").forEach((n) => { n.hidden = broken; });
+  if (broken) {
+    const ul0 = $("exlist"); ul0.textContent = "";
+    const li0 = document.createElement("li"); li0.className = "empty";
+    li0.textContent = "খরচের হিসাব এই মুহূর্তে লোড হয়নি। একটু পরে পেজটা আবার খোলো।";
+    ul0.append(li0);
+    $("a-updated").textContent = "";
+    return;
+  }
+  const f = accountFigures();
+  $("a-in").textContent = money(f.income);
+  $("a-out").textContent = money(f.spent);
+  const neg = f.bal < 0;
+  $("a-bal").textContent = money(Math.abs(f.bal));
+  $("a-ballabel").textContent = neg ? "ঘাটতি" : "অবশিষ্ট";
+  $("a-balbox").classList.toggle("neg", neg);
+  const pct = f.income > 0 ? Math.min(100, Math.round((f.spent / f.income) * 100)) : 0;
+  $("a-pct").textContent = "জমার " + bn.format(pct) + "% খরচ হয়েছে";
+  $("a-bar").setAttribute("aria-valuenow", pct);
+  requestAnimationFrame(() => { $("a-fill").style.width = pct + "%"; });
+  const note = $("a-note");
+  note.textContent = "";
+  const parts = ["জমা = পেমেন্ট করা " + bn.format(f.paid) + " জন × " + money(FEE) + (EXTRA_IN ? " + অন্যান্য আয় " + money(EXTRA_IN) : "") + "। "];
+  if (f.total - f.paid > 0) {
+    const proj = f.bal + f.pendingAmt;
+    parts.push("বাকি " + bn.format(f.total - f.paid) + " জনের টাকা এলে ", (proj < 0 ? "ঘাটতি " : "অবশিষ্ট ") + money(Math.abs(proj)), " দাঁড়াবে।");
+  }
+  note.append(parts[0]);
+  if (parts.length > 1) { note.append(parts[1]); const b = document.createElement("b"); b.textContent = parts[2]; note.append(b, parts[3]); }
+
+  const ul = $("exlist");
+  ul.textContent = "";
+  if (!expenses.length) {
+    const li = document.createElement("li"); li.className = "empty"; li.textContent = "এখনো কোনো খরচ যোগ করা হয়নি।"; ul.append(li);
+  } else {
+    expenses.forEach((e) => {
+      const li = document.createElement("li");
+      const dt = document.createElement("span"); dt.className = "dt"; dt.textContent = fmtDate(e.dt, e.raw) || "তারিখ নেই";
+      const fr = document.createElement("span"); fr.className = "fr"; fr.textContent = e.what;
+      li.append(dt, fr);
+      if (e.note) { const nt = document.createElement("span"); nt.className = "nt"; nt.textContent = e.note; li.append(nt); }
+      const am = document.createElement("span"); am.className = "am"; am.textContent = money(e.amt);
+      li.append(am);
+      ul.append(li);
+    });
+    const t = document.createElement("li"); t.className = "total";
+    const tf = document.createElement("span"); tf.className = "fr"; tf.textContent = "মোট খরচ (" + bn.format(expenses.length) + "টি)";
+    const ta = document.createElement("span"); ta.className = "am"; ta.textContent = money(f.spent);
+    t.append(tf, ta); ul.append(t);
+  }
+  $("a-updated").textContent = live
+    ? "খরচের তালিকা সর্বশেষ আপডেট: " + new Date().toLocaleString("bn-BD", { dateStyle: "medium", timeStyle: "short" }) + " (পেজ খোলার সময়)"
+    : (CFG.EXPENSE_CSV_URL ? "খরচের শিট এই মুহূর্তে লোড হয়নি।" : "");
+}
+
 async function load() {
   students = DATA.slice();
   let live = false;
@@ -762,6 +971,7 @@ async function load() {
     ? "সর্বশেষ আপডেট: " + new Date().toLocaleString("bn-BD", { dateStyle: "medium", timeStyle: "short" }) + " (পেজ খোলার সময়)"
     : "তালিকা " + (CFG.SNAPSHOT_DATE || "") + " পর্যন্ত হালনাগাদ।";
   render();
+  loadExpenses().then((l) => renderAccounts(l));
 }
 
 $("q").addEventListener("input", () => render({ fromSearch: true }));
@@ -975,6 +1185,40 @@ function buildPrintSheet() {
     mk("span", "", "এই তালিকায়: " + bn.format(rows.length) + " জন"),
     mk("span", "", "টাকার হিসাব প্রতি শিক্ষার্থী " + money(FEE) + " ধরে (গেস্ট ফি বাদে)")
   );
+
+  // জমা ও খরচের হিসাব (আলাদা পাতায়)
+  if (expensesReady) {
+    const f = accountFigures();
+    const acct = mk("div", "ps-acct");
+    acct.append(mk("div", "ps-h2", "জমা ও খরচের হিসাব"));
+    const s2 = mk("div", "ps-sum");
+    const b2 = (label, value, small, cls) => { const d = mk("div", cls || ""); d.append(mk("span", "", label), mk("b", "", value)); if (small) d.append(mk("small", "", small)); s2.append(d); };
+    b2("মোট জমা", money(f.income), bn.format(f.paid) + " জন × " + money(FEE) + (EXTRA_IN ? " + " + money(EXTRA_IN) : ""));
+    b2("মোট খরচ", money(f.spent), bn.format(expenses.length) + "টি খরচ");
+    b2(f.bal < 0 ? "ঘাটতি" : "অবশিষ্ট", money(Math.abs(f.bal)), "", f.bal < 0 ? "neg" : "key");
+    acct.append(s2);
+    if (expenses.length) {
+      const t2 = mk("table", "ps-table");
+      const th2 = mk("thead"), hr2 = mk("tr");
+      [["c-sl", "ক্র."], ["c-dt", "তারিখ"], ["c-fr", "কী বাবদ"], ["c-am", "টাকা"]].forEach(([c, t]) => { const th = mk("th", c, t); th.scope = "col"; hr2.append(th); });
+      th2.append(hr2);
+      const tb2 = mk("tbody");
+      expenses.forEach((e, k) => {
+        const tr = mk("tr");
+        const what = mk("td", "c-fr nm", e.what);
+        if (e.note) what.append(mk("span", "ps-note", e.note));
+        tr.append(mk("td", "c-sl", bn.format(k + 1)), mk("td", "c-dt", fmtDate(e.dt, e.raw)), what, mk("td", "c-am", money(e.amt)));
+        tb2.append(tr);
+      });
+      const tr = mk("tr", "ps-total");
+      const lab = mk("td", "", "মোট খরচ"); lab.colSpan = 3;
+      tr.append(lab, mk("td", "c-am", money(f.spent)));
+      tb2.append(tr);
+      t2.append(th2, tb2);
+      acct.append(t2);
+    } else acct.append(mk("p", "ps-empty", "এখনো কোনো খরচ যোগ করা হয়নি।"));
+    root.append(acct);
+  }
 }
 addEventListener("beforeprint", buildPrintSheet);
 $("print-btn").addEventListener("click", () => { buildPrintSheet(); print(); });
