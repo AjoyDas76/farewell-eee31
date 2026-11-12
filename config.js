@@ -16,11 +16,11 @@ const CONFIG = {
 
   // ---- শুভেচ্ছা দেয়াল ----
   // ১) গুগল ফর্মের লিংক (https://forms.gle/... বা docs.google.com/forms/...)। এটা দিলেই "শুভেচ্ছা লেখো" বাটন আসবে।
-  WISH_FORM_URL: "",
+  WISH_FORM_URL: "https://docs.google.com/forms/d/e/1FAIpQLSdUXRDDnC-fhI5_Up1JVQd9Nf5Xg_LZXeEgKYr8JJaqWtlU7w/viewform?usp=header",
   // ২) ফর্মের উত্তরের শিট "Publish to web" করে CSV লিংক এখানে দাও।
   //    শিটে একটা "Approved" কলাম যোগ করো। যে বার্তা দেখাতে চাও, তার ঘরে yes লেখো।
   //    yes ছাড়া কোনো বার্তা সাইটে আসবে না।
-  WISH_CSV_URL: "",
+  WISH_CSV_URL: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQqHRToR9yJRnI6L5Vsrck5kt5wIZuiM-MRCVwyf82b3VMxYISX3GhwhWUipOn1Vb8skGwPxgnvgPuR/pub?output=csv",
   // শিটের কলামের নাম (ফর্মের প্রশ্নের নাম যা, ঠিক তা-ই লেখো)
   WISH_COL_NAME: "Name",
   WISH_COL_MSG: "Message",
@@ -35,6 +35,8 @@ const CONFIG = {
   EXP_COL_FOR: "কী বাবদ",
   EXP_COL_AMT: "টাকা",
   EXP_COL_NOTE: "মন্তব্য",
+  // ভাউচারের ছবি: শিটে "ভাউচার" নামে কলাম রাখো। ঘরে Google Drive এর শেয়ার লিংক, ছবির https লিংক বা vouchers ফোল্ডারের ফাইলের নাম (যেমন v1.jpg) লেখো।
+  EXP_COL_VOUCHER: "ভাউচার",
   // শিক্ষার্থীদের ফি ছাড়া অন্য কোনো আয় (স্পনসর, অতিথি ফি ইত্যাদি) থাকলে মোট টাকাটা এখানে লেখো
   EXTRA_INCOME: 0,
 
@@ -57,7 +59,7 @@ const WISHES = [
 
 // খরচের শিট কাজ না করলে (বা না দিলে) এই তালিকা দেখানো হবে।
 const EXPENSES = [
-  // { date: "10/11/2026", what: "ক্রেস্ট অগ্রিম", amount: 2000, note: "" },
+  // { date: "10/11/2026", what: "ক্রেস্ট অগ্রিম", amount: 2000, note: "", voucher: "crest.jpg" },
 ];
 
 const SNAPSHOT = [
