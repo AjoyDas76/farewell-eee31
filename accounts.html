@@ -14,21 +14,21 @@
 <!-- শেয়ার প্রিভিউ (WhatsApp, Messenger, Facebook)।
      নিচের YOUR-SITE.com লাইনগুলো আপনার সাইটের আসল ঠিকানা দিয়ে বদলান।
      og:image এ অবশ্যই পুরো ঠিকানা (https://...) লাগে। -->
-<link rel="canonical" href="https://YOUR-SITE.com/accounts.html">
+<link rel="canonical" href="https://farewell-eee31.vercel.app/accounts.html">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="bn_BD">
 <meta property="og:site_name" content="ইইই ৩১তম ব্যাচ (ইভিনিং)">
 <meta property="og:title" content="জমা ও খরচের হিসাব | ফেয়ারওয়েল নাইট">
 <meta property="og:description" content="মোট জমা, খরচের তালিকা এবং অবশিষ্ট টাকার হিসাব।">
-<meta property="og:url" content="https://YOUR-SITE.com/accounts.html">
-<meta property="og:image" content="https://YOUR-SITE.com/share.jpg">
+<meta property="og:url" content="https://farewell-eee31.vercel.app/accounts.html">
+<meta property="og:image" content="https://farewell-eee31.vercel.app/share.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Farewell Night, EEE 31st Batch (Evening), Port City International University">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="জমা ও খরচের হিসাব | ফেয়ারওয়েল নাইট">
 <meta name="twitter:description" content="মোট জমা, খরচের তালিকা এবং অবশিষ্ট টাকার হিসাব।">
-<meta name="twitter:image" content="https://YOUR-SITE.com/share.jpg">
+<meta name="twitter:image" content="https://farewell-eee31.vercel.app/share.jpg">
 <link rel="preload" as="image" href="banner.webp" type="image/webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -314,8 +314,25 @@
   .exlist .dt { grid-column: 1; color: var(--mut); font-size: .8rem; }
   .exlist .fr { grid-column: 1; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
   .exlist .nt { grid-column: 1; color: var(--mut); font-size: .82rem; }
-  .exlist .am { grid-column: 2; grid-row: 1 / span 3; font-family: var(--serif); font-weight: 700; font-size: 1.1rem; white-space: nowrap; text-align: right; }
-  .exlist li.total { background: var(--gold-soft); border-color: rgba(245, 197, 66, .45); }
+  .exlist .am { grid-column: 2; grid-row: 1 / span 4; font-family: var(--serif); font-weight: 700; font-size: 1.1rem; white-space: nowrap; text-align: right; }
+  .vch { grid-column: 1; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin-top: .5rem; }
+  .vch small { color: var(--mut); font-size: .78rem; margin-right: .1rem; }
+  .vthumb { width: 62px; height: 62px; padding: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface-2); cursor: zoom-in; position: relative; }
+  .vthumb img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .vthumb:hover, .vthumb:focus-visible { border-color: var(--gold); outline: 2px solid var(--gold); outline-offset: 1px; }
+  .vthumb.bad { cursor: default; display: grid; place-items: center; font-size: .65rem; color: var(--mut); text-align: center; padding: 2px; }
+  .lb { position: fixed; inset: 0; z-index: 100; background: rgba(3, 6, 20, .9); display: grid; grid-template-rows: 1fr auto; padding: .8rem; }
+  .lb[hidden] { display: none; }
+  .lb-stage { position: relative; min-height: 0; display: grid; place-items: center; }
+  .lb-stage img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; background: #fff; }
+  .lb-btn { position: absolute; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); background: rgba(10, 16, 48, .8); color: #fff; font-size: 1.4rem; line-height: 1; cursor: pointer; display: grid; place-items: center; }
+  .lb-btn:hover, .lb-btn:focus-visible { border-color: var(--gold); outline: 2px solid var(--gold); }
+  .lb-close { top: 0; right: 0; }
+  .lb-prev { left: 0; top: 50%; transform: translateY(-50%); }
+  .lb-next { right: 0; top: 50%; transform: translateY(-50%); }
+  .lb-cap { color: #e8ecff; text-align: center; padding: .7rem .5rem .2rem; font-size: .95rem; }
+  .lb-cap a { color: var(--gold); margin-left: .6rem; white-space: nowrap; }
+  .exlist li.total {: var(--gold-soft); border-color: rgba(245, 197, 66, .45); }
   .exlist li.total .fr { grid-row: 1; }
   .exlist li.total .am { grid-row: 1; color: var(--gold-ink); }
   .exlist li.empty { display: block; text-align: center; color: var(--mut); }
@@ -324,7 +341,8 @@
     .exlist .dt { grid-column: 1; grid-row: 1 / span 2; align-self: center; font-size: .88rem; }
     .exlist .fr { grid-column: 2; grid-row: 1; }
     .exlist .nt { grid-column: 2; grid-row: 2; }
-    .exlist .am { grid-column: 3; grid-row: 1 / span 2; }
+    .exlist .am { grid-column: 3; grid-row: 1 / span 3; }
+    .exlist .vch { grid-column: 2; grid-row: 3; }
     .exlist li.total .fr { grid-column: 1 / span 2; }
     .exlist li.total .am { grid-column: 3; }
   }
@@ -540,6 +558,89 @@ function parseDateLoose(v) {
 function fmtDate(dt, raw) {
   return dt ? dt.toLocaleDateString("bn-BD", { day: "numeric", month: "long", year: "numeric" }) : (raw || "");
 }
+/* ---------- ভাউচারের ছবি ---------- */
+// শিটের "ভাউচার" ঘরে যা লেখা যাবে: Google Drive এর শেয়ার লিংক, https:// ছবির লিংক, অথবা শুধু ফাইলের নাম (vouchers/ ফোল্ডার থেকে নেয়)।
+// একাধিক ছবি হলে স্পেস, কমা বা নতুন লাইন দিয়ে আলাদা করে লেখো।
+function parsePics(v) {
+  const out = [];
+  String(v == null ? "" : v).split(/[\s,;|]+/).filter(Boolean).slice(0, 8).forEach((t) => {
+    let m;
+    if (/^https:\/\/(drive|docs)\.google\.com\//i.test(t)) {
+      m = t.match(/\/d\/([\w-]{10,})/) || t.match(/[?&]id=([\w-]{10,})/);
+      if (m) out.push({ thumb: "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w400", full: "https://drive.google.com/thumbnail?id=" + m[1] + "&sz=w1600", open: "https://drive.google.com/file/d/" + m[1] + "/view" });
+    } else if (/^https:\/\/[^\s"'<>]+$/i.test(t)) {
+      out.push({ thumb: t, full: t, open: t });
+    } else if (/^[\w\-. ()\u0980-\u09FF]+\.(jpe?g|png|webp|gif|avif)$/i.test(t) && !t.includes("..")) {
+      const u = "vouchers/" + encodeURIComponent(t);
+      out.push({ thumb: u, full: u, open: u });
+    }
+  });
+  return out;
+}
+let LB = null;
+function ensureLB() {
+  if (LB) return LB;
+  const root = document.createElement("div");
+  root.className = "lb"; root.hidden = true;
+  root.setAttribute("role", "dialog"); root.setAttribute("aria-modal", "true"); root.setAttribute("aria-label", "ভাউচারের ছবি");
+  const stage = document.createElement("div"); stage.className = "lb-stage";
+  const img = document.createElement("img"); img.alt = "";
+  const mkBtn = (cls, label, txt) => { const b = document.createElement("button"); b.type = "button"; b.className = "lb-btn " + cls; b.setAttribute("aria-label", label); b.textContent = txt; return b; };
+  const bClose = mkBtn("lb-close", "বন্ধ করো", "✕"), bPrev = mkBtn("lb-prev", "আগের ছবি", "‹"), bNext = mkBtn("lb-next", "পরের ছবি", "›");
+  stage.append(img, bPrev, bNext, bClose);
+  const cap = document.createElement("div"); cap.className = "lb-cap";
+  const capText = document.createElement("span");
+  const open = document.createElement("a"); open.target = "_blank"; open.rel = "noopener"; open.textContent = "আসল ছবি খোলো";
+  cap.append(capText, open);
+  root.append(stage, cap);
+  document.body.append(root);
+  LB = { root, img, bClose, bPrev, bNext, capText, open, list: [], i: 0, title: "", opener: null };
+  const go = (d) => { const n = LB.list.length; if (n > 1) showPic((LB.i + d + n) % n); };
+  bPrev.addEventListener("click", () => go(-1));
+  bNext.addEventListener("click", () => go(1));
+  bClose.addEventListener("click", closeLB);
+  root.addEventListener("click", (e) => { if (e.target === root || e.target === stage) closeLB(); });
+  img.addEventListener("error", () => { LB.capText.textContent = LB.title + " · ছবিটা লোড হয়নি"; });
+  document.addEventListener("keydown", (e) => {
+    if (root.hidden) return;
+    if (e.key === "Escape") { e.preventDefault(); closeLB(); }
+    else if (e.key === "ArrowLeft") go(-1);
+    else if (e.key === "ArrowRight") go(1);
+    else if (e.key === "Tab") {
+      const f = [bPrev, bNext, bClose, open].filter((x) => x.offsetParent !== null);
+      const a = document.activeElement, k = f.indexOf(a);
+      if (!f.length) return;
+      e.preventDefault();
+      f[(k + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+  return LB;
+}
+function showPic(i) {
+  LB.i = i;
+  const p = LB.list[i];
+  LB.img.src = p.full;
+  LB.img.alt = LB.title + (LB.list.length > 1 ? " — ছবি " + bn.format(i + 1) : "");
+  LB.capText.textContent = LB.title + (LB.list.length > 1 ? " · " + bn.format(i + 1) + "/" + bn.format(LB.list.length) : "");
+  LB.open.href = p.open;
+}
+function openLB(list, i, title, opener) {
+  const L = ensureLB();
+  L.list = list; L.title = title; L.opener = opener;
+  const multi = list.length > 1;
+  L.bPrev.hidden = !multi; L.bNext.hidden = !multi;
+  showPic(i);
+  L.root.hidden = false;
+  document.body.style.overflow = "hidden";
+  L.bClose.focus();
+}
+function closeLB() {
+  if (!LB || LB.root.hidden) return;
+  LB.root.hidden = true; LB.img.removeAttribute("src");
+  document.body.style.overflow = "";
+  if (LB.opener && document.contains(LB.opener)) LB.opener.focus();
+}
+
 function normExp(list) {
   const out = [];
   list.forEach((x, i) => {
@@ -547,7 +648,7 @@ function normExp(list) {
     const why = String(x.what || "").trim();
     if (!(amt > 0) || /^(মোট|total|sum|grand)/i.test(why)) return;
     const raw = String(x.date || "").trim();
-    out.push({ raw, dt: parseDateLoose(raw), what: why || "খরচ", amt, note: String(x.note || "").trim(), i });
+    out.push({ raw, dt: parseDateLoose(raw), what: why || "খরচ", amt, note: String(x.note || "").trim(), pics: parsePics(x.voucher), i });
   });
   // নতুন তারিখ আগে; একই তারিখে শিটে পরে লেখা আগে
   out.sort((a, b) => ((b.dt ? b.dt.getTime() : -1) - (a.dt ? a.dt.getTime() : -1)) || (b.i - a.i));
@@ -567,10 +668,12 @@ function expFromCSV(text) {
   const iWhat = find(head, [CFG.EXP_COL_FOR, "কী বাবদ", "কি বাবদ", "বাবদ", "বিবরণ", "খাত", "purpose", "description", "item", "details"], 1);
   const iAmt = find(head, [CFG.EXP_COL_AMT, "টাকা", "পরিমাণ", "amount", "taka", "cost"], 2);
   const iNote = find(head, [CFG.EXP_COL_NOTE, "মন্তব্য", "note", "notes", "remarks", "comment"], 3);
+  let iVou = find(head, [CFG.EXP_COL_VOUCHER, "ভাউচার", "ভাউচারের ছবি", "ছবি", "voucher", "receipt", "photo", "image"], -1);
+  if ([iDate, iWhat, iAmt, iNote].includes(iVou)) iVou = -1;
   // প্রথম সারিতে আসল সংখ্যা থাকলে সেটা হেডার নয়
   const first = rows[0];
   const hasHeader = !(first[iAmt] && !isNaN(parseAmount(first[iAmt])) && /\d/.test(toAscii(first[iAmt])) && !/[a-zA-Zঅ-হ]/.test(first[iAmt]));
-  return normExp(rows.slice(hasHeader ? 1 : 0).map((r) => ({ date: r[iDate], what: r[iWhat], amount: r[iAmt], note: iNote === iAmt ? "" : r[iNote] })));
+  return normExp(rows.slice(hasHeader ? 1 : 0).map((r) => ({ date: r[iDate], what: r[iWhat], amount: r[iAmt], note: iNote === iAmt ? "" : r[iNote], voucher: iVou >= 0 ? r[iVou] : "" })));
 }
 async function loadExpenses() {
   let live = false;
@@ -582,7 +685,7 @@ async function loadExpenses() {
       live = true;
     } catch (e) { console.warn("খরচের শিট লোড হয়নি:", e); }
   }
-  if (!live) expenses = normExp(EXP_STATIC.map((x) => ({ date: x.date, what: x.what, amount: x.amount, note: x.note })));
+  if (!live) expenses = normExp(EXP_STATIC.map((x) => ({ date: x.date, what: x.what, amount: x.amount, note: x.note, voucher: x.voucher })));
   expensesReady = live || EXP_STATIC.length > 0 || !!CFG.EXPENSE_CSV_URL;
   return live;
 }
@@ -623,6 +726,8 @@ function renderAccounts(live) {
     const proj = f.bal + f.pendingAmt;
     parts.push("বাকি " + bn.format(f.total - f.paid) + " জনের টাকা এলে ", (proj < 0 ? "ঘাটতি " : "অবশিষ্ট ") + money(Math.abs(proj)), " দাঁড়াবে।");
   }
+  const withV = expenses.filter((e) => e.pics.length).length;
+  if (expenses.length) parts[0] += "ভাউচারের ছবি আছে " + bn.format(expenses.length) + "টির মধ্যে " + bn.format(withV) + "টি খরচের। ";
   note.append(parts[0]);
   if (parts.length > 1) { note.append(parts[1]); const b = document.createElement("b"); b.textContent = parts[2]; note.append(b, parts[3]); }
 
@@ -637,6 +742,20 @@ function renderAccounts(live) {
       const fr = document.createElement("span"); fr.className = "fr"; fr.textContent = e.what;
       li.append(dt, fr);
       if (e.note) { const nt = document.createElement("span"); nt.className = "nt"; nt.textContent = e.note; li.append(nt); }
+      if (e.pics.length) {
+        const vch = document.createElement("div"); vch.className = "vch";
+        const lab = document.createElement("small"); lab.textContent = "ভাউচার:"; vch.append(lab);
+        e.pics.forEach((p, k) => {
+          const b = document.createElement("button"); b.type = "button"; b.className = "vthumb";
+          b.setAttribute("aria-label", "ভাউচারের ছবি " + bn.format(k + 1) + " বড় করে দেখো: " + e.what);
+          const im = document.createElement("img"); im.loading = "lazy"; im.decoding = "async"; im.alt = ""; im.src = p.thumb;
+          im.addEventListener("error", () => { b.classList.add("bad"); b.textContent = "ছবি নেই"; b.disabled = true; });
+          b.append(im);
+          b.addEventListener("click", () => openLB(e.pics, k, e.what + " · " + money(e.amt), b));
+          vch.append(b);
+        });
+        li.append(vch);
+      }
       const am = document.createElement("span"); am.className = "am"; am.textContent = money(e.amt);
       li.append(am);
       ul.append(li);
